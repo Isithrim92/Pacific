@@ -3,8 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vittorio Benvenuto · Psicologo del Lavoro</title>
-<meta name="description" content="Consulenza HR, Sicurezza sul Lavoro e Mobility Management, con un approccio basato su dati concreti.">
+<title>Vittorio Benvenuto · Psicologo del Lavoro, HR, Mobility Management ed ESG</title>
+<meta name="description" content="Consulenza HR, Sicurezza sul Lavoro, Mobility Management e consulenza ESG sulla mobilità aziendale, con un approccio basato su dati concreti.">
+<meta name="keywords" content="consulenza HR, sicurezza sul lavoro, mobility manager, consulenza ESG, ESG expert, psicologo del lavoro">
+<link rel="canonical" href="https://www.vittoriobenvenuto.it/index.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -587,6 +589,17 @@
   .chooser-panel h2{
     font-size:28px;
   }
+  .chooser-panel .icon-row{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:16px;
+  }
+  .chooser-panel .esg-marks text{
+    font-family:'IBM Plex Sans', sans-serif;
+    fill:var(--accent);
+    stroke:none;
+  }
   .chooser-panel p{
     color:var(--muted);
     font-size:15px;
@@ -641,15 +654,25 @@
     <span class="enter">Entra</span>
   </a>
   <a class="chooser-panel" href="mobility-management.html" style="--accent:var(--rust)">
-    <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-      <path d="M6 32l4-12a4 4 0 0 1 4-3h20a4 4 0 0 1 4 3l4 12"></path>
-      <path d="M4 32h40v6a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2v-2H12v2a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"></path>
-      <circle cx="14" cy="32" r="2.4"></circle>
-      <circle cx="34" cy="32" r="2.4"></circle>
-      <path d="M14 22h20"></path>
-    </svg>
+    <div class="icon-row">
+      <svg viewBox="0 0 48 48" style="width:56px;height:56px;" xmlns="http://www.w3.org/2000/svg">
+        <path d="M6 32l4-12a4 4 0 0 1 4-3h20a4 4 0 0 1 4 3l4 12"></path>
+        <path d="M4 32h40v6a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2v-2H12v2a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"></path>
+        <circle cx="14" cy="32" r="2.4"></circle>
+        <circle cx="34" cy="32" r="2.4"></circle>
+        <path d="M14 22h20"></path>
+      </svg>
+      <svg class="esg-marks" viewBox="0 0 132 56" style="width:132px;height:56px;" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="27" cy="28" r="26"></circle>
+        <circle cx="66" cy="28" r="26"></circle>
+        <circle cx="105" cy="28" r="26"></circle>
+        <text x="20.5" y="35" font-size="20" font-weight="600">E</text>
+        <text x="59.5" y="35" font-size="20" font-weight="600">S</text>
+        <text x="98.5" y="35" font-size="20" font-weight="600">G</text>
+      </svg>
+    </div>
     <h2>Mobility Management</h2>
-    <p>Spostamenti casa-lavoro, sicurezza stradale, formazione</p>
+    <p>Spostamenti casa-lavoro, sicurezza stradale, consulenza ESG</p>
     <span class="enter">Entra</span>
   </a>
 </main>

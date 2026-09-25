@@ -3,9 +3,28 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vittorio Benvenuto · Mobility Management e Sicurezza Stradale</title>
-<meta name="description" content="Piani di spostamento casa-lavoro, sicurezza stradale e formazione, con un approccio scientifico alle scelte di mobilità.">
-<link rel="canonical" href="mobility-management.html">
+<title>Consulenza ESG e Mobility Management | Vittorio Benvenuto</title>
+<meta name="description" content="Consulenza ESG e CSRD per la mobilità aziendale: Piani di Spostamento Casa-Lavoro, sicurezza stradale e formazione, con un approccio scientifico alle scelte di mobilità e ai dati richiesti dalla rendicontazione di sostenibilità.">
+<meta name="keywords" content="consulenza ESG, ESG expert, mobility manager, piano spostamento casa lavoro, PSCL, CSRD, sicurezza stradale, psicologo del traffico">
+<link rel="canonical" href="https://www.vittoriobenvenuto.it/mobility-management.html">
+<meta property="og:title" content="Consulenza ESG e Mobility Management | Vittorio Benvenuto">
+<meta property="og:description" content="Piani di Spostamento Casa-Lavoro, sicurezza stradale e consulenza ESG sulla mobilità aziendale.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.vittoriobenvenuto.it/mobility-management.html">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Vittorio Benvenuto, Psicologo del Lavoro e Mobility Manager",
+  "url": "https://www.vittoriobenvenuto.it/mobility-management.html",
+  "image": "https://www.vittoriobenvenuto.it/foto-vittorio.jpg",
+  "email": "consulenza@vittoriobenvenuto.it",
+  "telephone": "+393937462110",
+  "areaServed": "IT",
+  "description": "Consulenza ESG per la mobilità aziendale, Piani di Spostamento Casa-Lavoro (PSCL), sicurezza stradale e formazione.",
+  "knowsAbout": ["ESG", "CSRD", "Mobility Management", "Piano Spostamento Casa-Lavoro", "Sicurezza Stradale", "Psicologia del Traffico"]
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -549,6 +568,74 @@
   }
 
   /* ---------- INTRO MOBILITY ---------- */
+  /* ---------- ESG CALLOUT ---------- */
+  .esg-callout{
+    padding:40px 0 8px;
+  }
+  .esg-callout .box{
+    background:var(--forest);
+    color:var(--white);
+    border-radius:14px;
+    padding:36px 40px;
+    display:grid;
+    grid-template-columns:1.1fr 1fr;
+    gap:36px;
+    align-items:center;
+    opacity:0;
+    transform:translateY(16px);
+    transition:opacity .8s ease, transform .8s ease;
+  }
+  .esg-callout .box.in-view{
+    opacity:1;
+    transform:translateY(0);
+  }
+  .esg-callout .badge{
+    display:inline-block;
+    font-size:12.5px;
+    font-weight:600;
+    letter-spacing:.04em;
+    text-transform:uppercase;
+    background:rgba(250,249,245,0.14);
+    padding:5px 12px;
+    border-radius:999px;
+    margin-bottom:14px;
+  }
+  .esg-callout h2{
+    font-size:26px;
+    line-height:1.3;
+    margin:0 0 12px;
+    color:var(--white);
+  }
+  .esg-callout p{
+    margin:0;
+    font-size:15.5px;
+    line-height:1.6;
+    color:rgba(250,249,245,0.88);
+  }
+  .esg-callout ul{
+    margin:0;
+    padding:0;
+    list-style:none;
+  }
+  .esg-callout li{
+    position:relative;
+    padding-left:26px;
+    margin-bottom:12px;
+    font-size:14.5px;
+    line-height:1.5;
+    color:var(--white);
+  }
+  .esg-callout li:last-child{ margin-bottom:0; }
+  .esg-callout li::before{
+    content:"✓";
+    position:absolute;
+    left:0; top:0;
+    font-weight:600;
+    color:#b9d6c2;
+  }
+  @media (max-width:760px){
+    .esg-callout .box{ grid-template-columns:1fr; padding:28px; }
+  }
   .intro{
     padding:64px 0 88px;
     border-bottom:1px solid var(--line);
@@ -655,6 +742,25 @@
       </div>
     </div>
     <img class="hero-photo" src="foto-vittorio.jpg" alt="Ritratto di Vittorio Benvenuto">
+  </div>
+</section>
+
+<section class="esg-callout">
+  <div class="wrap">
+    <div class="box">
+      <div>
+        <span class="badge">ESG</span>
+        <h2>La mobilità del personale è già una questione ESG</h2>
+        <p>Gli obblighi di rendicontazione di sostenibilità, con la direttiva CSRD (UE 2022/2464), riguardano un numero crescente di imprese, non più solo le grandi società quotate. La mobilità casa-lavoro tocca direttamente i pilastri Ambientale e Sociale, e può diventare un dato concreto da documentare.</p>
+      </div>
+      <ul>
+        <li>Redazione del Piano Spostamento Casa-Lavoro (PSCL) orientata anche ai criteri ESG</li>
+        <li>Interventi di efficientamento della produttività attraverso il miglioramento della mobilità</li>
+        <li>Raccolta e analisi dei dati della mobilità del personale, utili per valutare l'efficacia degli interventi e per considerarli nella rendicontazione di sostenibilità</li>
+        <li>Interventi sulla componente Sociale, tra sicurezza stradale e benessere dei lavoratori</li>
+        <li>Servizi di formazione su temi inerenti alla direttiva europea CSRD</li>
+      </ul>
+    </div>
   </div>
 </section>
 
@@ -852,7 +958,7 @@
 </footer>
 
 <script>
-  document.querySelectorAll('.section-head, .mobility, footer').forEach(function(el){
+  document.querySelectorAll('.section-head, .mobility, .esg-callout .box, footer').forEach(function(el){
     var obs = new IntersectionObserver(function(entries){
       entries.forEach(function(entry){
         if(entry.isIntersecting){
