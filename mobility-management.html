@@ -640,6 +640,25 @@
   @media (max-width:760px){
     .esg-callout .box{ grid-template-columns:1fr; padding:28px; }
   }
+  .esg-callout .wrap{
+    text-align:center;
+  }
+  .esg-callout .box{
+    text-align:left;
+  }
+  .esg-cta{
+    display:inline-block;
+    margin-top:28px;
+    background:var(--forest);
+    color:var(--white);
+    padding:15px 32px;
+    text-decoration:none;
+    font-size:15px;
+    font-weight:500;
+    border-radius:2px;
+    transition:background .2s ease;
+  }
+  .esg-cta:hover{ background:#24422e; }
   .intro{
     padding:64px 0 88px;
     border-bottom:1px solid var(--line);
@@ -836,6 +855,7 @@
         <li>Servizi di formazione su temi inerenti alla direttiva europea CSRD</li>
       </ul>
     </div>
+    <a href="#livelli" class="esg-cta">Scopri le consulenze disponibili in ambito ESG</a>
   </div>
 </section>
 
@@ -937,7 +957,7 @@
   </div>
 </section>
 
-<section class="livelli">
+<section class="livelli" id="livelli">
   <div class="wrap">
     <div class="section-head">
       <h2>Consulenze ESG evidence-based</h2>
