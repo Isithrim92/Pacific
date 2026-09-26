@@ -643,6 +643,9 @@
       <span>Psicologo del Lavoro</span>
       <span>Consulente per le Organizzazioni: HR e ESG (Mobilità Sostenibile)</span>
     </div>
+    <nav>
+      <a href="#" id="openChiSono">Chi sono</a>
+    </nav>
   </div>
 </header>
 
@@ -681,6 +684,33 @@
     <span class="enter">Entra</span>
   </a>
 </main>
+
+<div class="modal-overlay" id="chiSonoModal" hidden>
+  <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="chisono-title">
+    <button class="modal-close" id="chiSonoClose" aria-label="Chiudi">&times;</button>
+    <h3 id="chisono-title">Chi sono</h3>
+    <p style="margin:0 0 16px;">Vittorio Benvenuto, Dottore magistrale in Psicologia (Corso di laurea in Psicologia Cognitiva Applicata), Psicologo iscritto all'Albo degli Psicologi del Piemonte, Sezione A, n. 12741.</p>
+    <p style="margin:0 0 16px; color:var(--muted); font-size:14.5px;">P.IVA 02858170034</p>
+    <p style="margin:0; font-size:14.5px;">Telefono: <a href="tel:+393937462110" style="color:inherit;">393 746 2110</a><br>Email: <a href="mailto:consulenza@vittoriobenvenuto.it" style="color:inherit;">consulenza@vittoriobenvenuto.it</a></p>
+  </div>
+</div>
+
+<script>
+  var chiSonoModal = document.getElementById('chiSonoModal');
+  document.getElementById('openChiSono').addEventListener('click', function(e){
+    e.preventDefault();
+    chiSonoModal.hidden = false;
+  });
+  document.getElementById('chiSonoClose').addEventListener('click', function(){
+    chiSonoModal.hidden = true;
+  });
+  chiSonoModal.addEventListener('click', function(e){
+    if(e.target === chiSonoModal) chiSonoModal.hidden = true;
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape' && !chiSonoModal.hidden) chiSonoModal.hidden = true;
+  });
+</script>
 
 </body>
 </html>

@@ -715,6 +715,76 @@
   @media (max-width:760px){
     .competenza-item{ grid-template-columns:1fr; }
   }
+  /* ---------- LIVELLI DI CONSULENZA ---------- */
+  .livelli{
+    padding:88px 0;
+    border-bottom:1px solid var(--line);
+    background:var(--paper-alt);
+  }
+  .livelli .section-head h2{
+    display:inline-block;
+    position:relative;
+    padding-bottom:16px;
+    max-width:34ch;
+  }
+  .livelli .section-head h2::after{
+    content:"";
+    position:absolute;
+    left:0; bottom:0;
+    height:4px;
+    width:0;
+    background:linear-gradient(90deg, var(--forest) 0 50%, var(--slate) 50% 100%);
+    transition:width .9s ease;
+  }
+  .livelli .section-head.in-view h2::after{ width:200px; }
+  .livelli .section-head .subtitle{
+    font-family:'IBM Plex Sans', sans-serif;
+    font-size:15px;
+    color:var(--muted);
+    margin-top:10px;
+  }
+  .livelli-intro{
+    max-width:70ch;
+    color:var(--muted);
+    margin:0 0 40px;
+    font-size:15.5px;
+  }
+  .livello-item{
+    padding:28px 0;
+    border-top:1px solid var(--line);
+    display:grid;
+    grid-template-columns:1fr 2.2fr;
+    gap:24px;
+  }
+  .livello-item:last-of-type{ border-bottom:1px solid var(--line); }
+  .livello-item h3{
+    font-size:18px;
+  }
+  .livello-item .livello-tag{
+    display:inline-block;
+    margin-top:10px;
+    font-size:12.5px;
+    font-weight:500;
+    color:var(--forest);
+    background:rgba(46,83,57,0.12);
+    padding:5px 12px;
+    border-radius:999px;
+  }
+  .livello-item p{
+    color:var(--muted);
+    font-size:15.5px;
+    margin:0;
+  }
+  .livelli-chiusura{
+    margin:32px 0 0;
+    font-size:15px;
+    color:var(--muted);
+    font-style:italic;
+    font-family:'Newsreader', serif;
+  }
+  @media (max-width:760px){
+    .livello-item{ grid-template-columns:1fr; }
+  }
 </style>
 </head>
 <body>
@@ -727,6 +797,7 @@
       <span>Psicologo del Lavoro · Mobility Manager</span>
     </div>
     <nav>
+      <a href="#" id="openChiSono">Chi sono</a>
       <a href="#ruolo">Il ruolo</a>
       <a href="#competenze">Competenze</a>
       <a href="#contatti">Contatti</a>
@@ -866,6 +937,60 @@
   </div>
 </section>
 
+<section class="livelli">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Consulenze ESG evidence-based</h2>
+      <p class="subtitle">I livelli di consulenza</p>
+    </div>
+    <p class="livelli-intro">Molte aziende non sanno bene a quale figura rivolgersi per la mobilità del personale, e finiscono per pensare solo in termini di logistica e infrastrutture. Il nodo, però, è spesso comportamentale: anche quando gli strumenti giusti sono già disponibili, resta da capire perché le persone li usano poco, o non li usano affatto. È qui che si inserisce il mio lavoro, ad affiancare la componente logistica, non a sostituirla.</p>
+
+    <div class="livello-item">
+      <div>
+        <h3>Audit e diagnosi</h3>
+        <span class="livello-tag">Livello 1</span>
+      </div>
+      <p>Una fotografia chiara della situazione attuale, costruita raccogliendo dati concreti sulle abitudini di spostamento del personale. Il risultato è un quadro dei punti di forza e delle criticità, senza ancora entrare nel merito delle soluzioni. È il punto di partenza più naturale per chi vuole prima capire dove si trova, e decidere solo in un secondo momento come muoversi.</p>
+    </div>
+
+    <div class="livello-item">
+      <div>
+        <h3>Audit con raccomandazioni sintetiche</h3>
+        <span class="livello-tag">Livello 2</span>
+      </div>
+      <p>Comprende la stessa raccolta dati del livello precedente, con in più una lettura sintetica delle priorità emerse, utile per orientarsi tra le criticità individuate. Non comprende invece la progettazione dell'intervento vero e proprio, la quale rimane indicata solo nelle sue linee generali.</p>
+    </div>
+
+    <div class="livello-item">
+      <div>
+        <h3>Intervento mirato</h3>
+        <span class="livello-tag">Livello 3</span>
+      </div>
+      <p>A partire da una diagnosi, già fatta o da svolgere, piuttosto che da una necessità già chiara, si mira a raggiungere obiettivi concreti concordati, quali la redazione del Piano di Spostamento Casa-Lavoro, oppure un percorso di formazione mirato su una criticità specifica, per esempio il coordinamento tra turni e tragitti di lavoratori che potrebbero condividere l'auto per raggiungere la sede, ma che oggi sembrano avere impegni incompatibili. È il livello pensato per chi ha già capito dove intervenire, e cerca una risposta operativa concreta.</p>
+    </div>
+
+    <div class="livello-item">
+      <div>
+        <h3>Accompagnamento continuativo</h3>
+        <span class="livello-tag">Livello 4</span>
+      </div>
+      <p>Un percorso esteso nel tempo, che affianca l'azienda nell'attuazione delle misure scelte. Prevede una nuova raccolta dati per misurare l'evoluzione rispetto alla fotografia iniziale, l'aggiornamento periodico dei dati utili alla rendicontazione di sostenibilità, e la possibilità di estendere la formazione a più team o sedi. Questo livello consente sia di quantificare l'efficacia degli interventi, sia di coglierne i trend e creare proiezioni utili a orientare le decisioni future, tanto in finestre temporali a breve-medio termine quanto in quelle a lungo termine.</p>
+    </div>
+
+    <p class="livelli-chiusura">I diversi livelli possono essere combinati in un percorso su misura, definito insieme durante un primo colloquio conoscitivo.</p>
+  </div>
+</section>
+
+<div class="modal-overlay" id="chiSonoModal" hidden>
+  <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="chisono-title">
+    <button class="modal-close" id="chiSonoClose" aria-label="Chiudi">&times;</button>
+    <h3 id="chisono-title">Chi sono</h3>
+    <p style="margin:0 0 16px;">Vittorio Benvenuto, Dottore magistrale in Psicologia (Corso di laurea in Psicologia Cognitiva Applicata), Psicologo iscritto all'Albo degli Psicologi del Piemonte, Sezione A, n. 12741.</p>
+    <p style="margin:0 0 16px; color:var(--muted); font-size:14.5px;">P.IVA 02858170034</p>
+    <p style="margin:0; font-size:14.5px;">Telefono: <a href="tel:+393937462110" style="color:inherit;">393 746 2110</a><br>Email: <a href="mailto:consulenza@vittoriobenvenuto.it" style="color:inherit;">consulenza@vittoriobenvenuto.it</a></p>
+  </div>
+</div>
+
 <div class="modal-overlay" id="consultModal" hidden>
   <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modal-title">
     <button class="modal-close" id="modalClose" aria-label="Chiudi">&times;</button>
@@ -1001,6 +1126,21 @@
   document.getElementById('openConsultModal').addEventListener('click', function(e){
     e.preventDefault();
     openModal();
+  });
+
+  var chiSonoModal = document.getElementById('chiSonoModal');
+  document.getElementById('openChiSono').addEventListener('click', function(e){
+    e.preventDefault();
+    chiSonoModal.hidden = false;
+  });
+  document.getElementById('chiSonoClose').addEventListener('click', function(){
+    chiSonoModal.hidden = true;
+  });
+  chiSonoModal.addEventListener('click', function(e){
+    if(e.target === chiSonoModal) chiSonoModal.hidden = true;
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape' && !chiSonoModal.hidden) chiSonoModal.hidden = true;
   });
   document.getElementById('modalClose').addEventListener('click', closeModal);
   modal.addEventListener('click', function(e){
