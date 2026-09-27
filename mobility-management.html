@@ -120,8 +120,17 @@
   }
   /* ---------- HERO ---------- */
   .hero{
-    padding:96px 0 88px;
+    padding:64px 0 88px;
     border-bottom:1px solid var(--line);
+  }
+  .hero-eyebrow{
+    font-family:'IBM Plex Sans', sans-serif;
+    font-weight:600;
+    font-size:13px;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    color:var(--rust);
+    margin-bottom:56px;
   }
   .hero .wrap{
     display:grid;
@@ -157,14 +166,15 @@
     .hero-photo{ max-width:320px; margin:0 auto; order:-1; }
   }
   @media (prefers-reduced-motion: no-preference){
-    .hero h1, .hero p.lede, .hero .cta-row{
+    .hero-eyebrow, .hero h1, .hero p.lede, .hero .cta-row{
       opacity:0;
       transform:translateY(14px);
       animation:rise .7s ease forwards;
     }
-    .hero h1{animation-delay:.05s;}
-    .hero p.lede{animation-delay:.22s;}
-    .hero .cta-row{animation-delay:.38s;}
+    .hero-eyebrow{animation-delay:0s;}
+    .hero h1{animation-delay:.14s;}
+    .hero p.lede{animation-delay:.30s;}
+    .hero .cta-row{animation-delay:.46s;}
     @keyframes rise{ to{ opacity:1; transform:translateY(0); } }
   }
   .btn{
@@ -864,8 +874,11 @@
 
 <section class="hero">
   <div class="wrap">
+    <div class="hero-eyebrow">Psicologia del Traffico applicata</div>
+  </div>
+  <div class="wrap">
     <div class="hero-text">
-      <h1>Una mobilità più efficiente parte da come le persone scelgono di muoversi.</h1>
+      <h1>Una mobilità più efficiente parte da come le persone scelgono di muoversi</h1>
       <p class="lede">Piani di spostamento casa-lavoro, sicurezza stradale e formazione, con un approccio scientifico alle scelte di mobilità.</p>
       <div class="cta-row">
         <a class="btn" href="#contatti" id="openConsultModal">Richiedi una consulenza</a>
