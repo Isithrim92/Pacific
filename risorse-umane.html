@@ -2,6 +2,8 @@
 <html lang="it">
 <head>
 <meta charset="UTF-8">
+<script>document.documentElement.classList.add('i18n-pending');</script>
+<style>html.i18n-pending body{visibility:hidden;}</style>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Vittorio Benvenuto · Risorse Umane, Sicurezza sul Lavoro e Human Factors</title>
 <meta name="description" content="Consulenza HR, Sicurezza sul Lavoro (D.Lgs 81/08) e Human Factors basati su dati concreti.">
@@ -85,6 +87,12 @@
     color:var(--muted);
     margin-top:2px;
   }
+  .header-right{
+    display:flex;
+    align-items:center;
+    gap:28px;
+    flex-wrap:wrap;
+  }
   nav{
     display:flex;
     gap:28px;
@@ -99,6 +107,77 @@
   nav a:hover, nav a:focus-visible{
     border-color:var(--ink);
   }
+  /* ---------- SELETTORE LINGUA ---------- */
+  .lang-switch{ position:relative; }
+  .lang-switch-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    background:rgba(20,24,29,0.05);
+    border:none;
+    border-radius:999px;
+    padding:10px 18px;
+    cursor:pointer;
+    font-family:'IBM Plex Sans', sans-serif;
+    font-size:14px;
+    font-weight:500;
+    color:var(--ink);
+    transition:background .2s ease;
+  }
+  .lang-switch-btn:hover, .lang-switch-btn[aria-expanded="true"]{
+    background:rgba(20,24,29,0.09);
+  }
+  .lang-flags{ display:flex; align-items:center; }
+  .lang-flags .flag{
+    width:18px; height:13px;
+    border-radius:2px;
+    overflow:hidden;
+    display:flex;
+    box-shadow:0 0 0 1.5px var(--white);
+    margin-left:-6px;
+  }
+  .lang-flags .flag:first-child{ margin-left:0; }
+  .lang-flags .flag svg{ width:100%; height:100%; display:block; }
+  .lang-chevron{ color:var(--muted); flex-shrink:0; transition:transform .2s ease; }
+  .lang-switch-btn[aria-expanded="true"] .lang-chevron{ transform:rotate(180deg); }
+  .lang-menu{
+    position:absolute;
+    top:calc(100% + 8px);
+    right:0;
+    background:var(--white);
+    border:1px solid var(--line);
+    border-radius:10px;
+    box-shadow:0 12px 28px rgba(20,24,29,0.16);
+    padding:6px;
+    min-width:180px;
+    z-index:250;
+  }
+  .lang-menu[hidden]{ display:none; }
+  .lang-option{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    width:100%;
+    padding:10px 10px;
+    border:none;
+    background:none;
+    border-radius:6px;
+    cursor:pointer;
+    font-family:inherit;
+    font-size:14.5px;
+    color:var(--ink);
+    text-align:left;
+  }
+  .lang-option:hover, .lang-option:focus-visible{ background:var(--paper-alt); }
+  .lang-option .flag{
+    width:20px; height:14px;
+    border-radius:2px;
+    overflow:hidden;
+    flex-shrink:0;
+    box-shadow:0 0 0 1px var(--line);
+  }
+  .lang-option .flag svg{ width:100%; height:100%; display:block; }
+  .lang-option.active{ font-weight:600; }
   /* ---------- HERO ---------- */
   .hero{
     padding:96px 0 88px;
@@ -672,51 +751,75 @@
 <header>
   <div class="wrap">
     <div class="brand"><a href="index.html" style="text-decoration:none;color:inherit;">Vittorio Benvenuto</a>
-      <span>Psicologo del Lavoro · Consulente HR</span>
+      <span data-i18n="hr.brand.tag">Psicologo del Lavoro · Consulente HR</span>
     </div>
+    <div class="header-right">
     <nav>
-      <a href="#servizi">Servizi</a>
-      <a href="#chi-sono">Chi sono</a>
-      <a href="#contatti">Contatti</a>
-      <a href="mobility-management.html">Mobility Management</a>
+      <a href="#servizi" data-i18n="hr.nav.servizi">Servizi</a>
+      <a href="#chi-sono" data-i18n="shared.nav.chiSono">Chi sono</a>
+      <a href="#contatti" data-i18n="shared.nav.contatti">Contatti</a>
+      <a href="mobility-management.html" data-i18n="shared.nav.mobility">Mobility Management</a>
     </nav>
+    <div class="lang-switch" id="langSwitch">
+      <button class="lang-switch-btn" id="langSwitchBtn" type="button" aria-haspopup="listbox" aria-expanded="false">
+        <span class="lang-flags" aria-hidden="true">
+          <span class="flag"><svg viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg"><rect width="10" height="20" fill="#009246"/><rect x="10" width="10" height="20" fill="#fff"/><rect x="20" width="10" height="20" fill="#ce2b37"/></svg></span>
+          <span class="flag"><svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="40" fill="#012169"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#fff" stroke-width="8"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#C8102E" stroke-width="4"/><path d="M30,0 V40 M0,20 H60" stroke="#fff" stroke-width="14"/><path d="M30,0 V40 M0,20 H60" stroke="#C8102E" stroke-width="8"/></svg></span>
+          <span class="flag"><svg viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg"><rect width="30" height="10" fill="#0057b7"/><rect y="10" width="30" height="10" fill="#ffd700"/></svg></span>
+        </span>
+        <span class="lang-current" id="langCurrentLabel">Italiano</span>
+        <svg class="lang-chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="lang-menu" id="langMenu" role="listbox" hidden>
+        <button class="lang-option" type="button" data-lang="it" role="option">
+          <span class="flag"><svg viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg"><rect width="10" height="20" fill="#009246"/><rect x="10" width="10" height="20" fill="#fff"/><rect x="20" width="10" height="20" fill="#ce2b37"/></svg></span> Italiano
+        </button>
+        <button class="lang-option" type="button" data-lang="en" role="option">
+          <span class="flag"><svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="40" fill="#012169"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#fff" stroke-width="8"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#C8102E" stroke-width="4"/><path d="M30,0 V40 M0,20 H60" stroke="#fff" stroke-width="14"/><path d="M30,0 V40 M0,20 H60" stroke="#C8102E" stroke-width="8"/></svg></span> English
+        </button>
+        <button class="lang-option" type="button" data-lang="uk" role="option">
+          <span class="flag"><svg viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg"><rect width="30" height="10" fill="#0057b7"/><rect y="10" width="30" height="10" fill="#ffd700"/></svg></span> Українська
+        </button>
+      </div>
+    </div>
+    </div>
   </div>
 </header>
 
 <section class="hero">
   <div class="wrap">
     <div class="hero-text">
-      <h1>Persone più sicure, processi più efficienti, aziende più produttive.</h1>
-      <p class="lede">Consulenza HR, Sicurezza sul Lavoro e Human Factors, con un approccio basato su dati concreti.</p>
+      <h1 data-i18n="hr.hero.h1">Persone più sicure, processi più efficienti, aziende più produttive.</h1>
+      <p class="lede" data-i18n="hr.hero.lede">Consulenza HR, Sicurezza sul Lavoro e Human Factors, con un approccio basato su dati concreti.</p>
       <div class="cta-row">
-        <a class="btn" href="#contatti" id="openConsultModal">Richiedi una consulenza</a>
-        <a class="btn-ghost" href="#servizi">Scopri i servizi</a>
+        <a class="btn" href="#contatti" id="openConsultModal" data-i18n="shared.cta.consulenza">Richiedi una consulenza</a>
+        <a class="btn-ghost" href="#servizi" data-i18n="hr.hero.scopriServizi">Scopri i servizi</a>
       </div>
     </div>
-    <img class="hero-photo" src="foto-vittorio.jpg" alt="Ritratto di Vittorio Benvenuto">
+    <img class="hero-photo" src="foto-vittorio.jpg" alt="Ritratto di Vittorio Benvenuto" data-i18n-attr="alt:shared.fotoAlt">
   </div>
 </section>
 
 <section class="servizi" id="servizi">
   <div class="wrap">
     <div class="section-head">
-      <h2>Servizi</h2>
+      <h2 data-i18n="hr.servizi.title">Servizi</h2>
     </div>
     <div class="service-grid">
       <div class="service primary" style="--accent:var(--ochre)">
-        <span class="tag">Consulenza HR</span>
-        <h3>Consulenza HR &amp; Selezione</h3>
-        <p>Selezione e valutazione delle persone con strumenti scientifici, per ridurre gli errori di assunzione e costruire team più solidi. Molti fraintendimenti nascono già nell'annuncio di lavoro: ad esempio, una parola come "flessibilità" può significare per l'azienda la disponibilità a restare più a lungo nei giorni di maggior carico, mentre per chi legge l'annuncio può voler dire solo qualche straordinario occasionale. Aiuto le aziende a tradurre queste aspettative in requisiti chiari fin dall'inizio, così da selezionare persone che condividano davvero lo stesso significato delle parole scritte nell'offerta.</p>
+        <span class="tag" data-i18n="hr.servizi.s1.tag">Consulenza HR</span>
+        <h3 data-i18n="hr.servizi.s1.title">Consulenza HR &amp; Selezione</h3>
+        <p data-i18n="hr.servizi.s1.text">Selezione e valutazione delle persone con strumenti scientifici, per ridurre gli errori di assunzione e costruire team più solidi. Molti fraintendimenti nascono già nell'annuncio di lavoro: ad esempio, una parola come "flessibilità" può significare per l'azienda la disponibilità a restare più a lungo nei giorni di maggior carico, mentre per chi legge l'annuncio può voler dire solo qualche straordinario occasionale. Aiuto le aziende a tradurre queste aspettative in requisiti chiari fin dall'inizio, così da selezionare persone che condividano davvero lo stesso significato delle parole scritte nell'offerta.</p>
       </div>
       <div class="service" style="--accent:var(--forest)">
-        <span class="tag">Sicurezza sul lavoro</span>
-        <h3>Stress Lavoro-Correlato</h3>
-        <p>La valutazione dello stress lavoro-correlato è un obbligo di legge (D.Lgs 81/08), ma trattarla come un modulo da compilare è l'errore più comune: si perde l'occasione di capire davvero dove il rischio impatta su assenze, turnover e produttività. Uso strumenti validati per restituire un quadro concreto, non un documento da archiviare.</p>
+        <span class="tag" data-i18n="hr.servizi.s2.tag">Sicurezza sul lavoro</span>
+        <h3 data-i18n="hr.servizi.s2.title">Stress Lavoro-Correlato</h3>
+        <p data-i18n="hr.servizi.s2.text">La valutazione dello stress lavoro-correlato è un obbligo di legge (D.Lgs 81/08), ma trattarla come un modulo da compilare è l'errore più comune: si perde l'occasione di capire davvero dove il rischio impatta su assenze, turnover e produttività. Uso strumenti validati per restituire un quadro concreto, non un documento da archiviare.</p>
       </div>
       <div class="service" style="--accent:var(--slate)">
-        <span class="tag">Human Factors</span>
-        <h3>Ergonomia cognitiva</h3>
-        <p>Un ambiente di lavoro può essere progettato alla perfezione dal punto di vista logistico e ingegneristico. Può comunque continuare a generare errori, dimenticanze, incidenti. Manca quasi sempre lo stesso tassello: il fattore umano, cioè il modo in cui le persone percepiscono, decidono e agiscono all'interno di quei processi. Analizzo proprio questo aspetto per intervenire alla fonte e non solo sui sintomi del problema.</p>
+        <span class="tag" data-i18n="hr.servizi.s3.tag">Human Factors</span>
+        <h3 data-i18n="hr.servizi.s3.title">Ergonomia cognitiva</h3>
+        <p data-i18n="hr.servizi.s3.text">Un ambiente di lavoro può essere progettato alla perfezione dal punto di vista logistico e ingegneristico. Può comunque continuare a generare errori, dimenticanze, incidenti. Manca quasi sempre lo stesso tassello: il fattore umano, cioè il modo in cui le persone percepiscono, decidono e agiscono all'interno di quei processi. Analizzo proprio questo aspetto per intervenire alla fonte e non solo sui sintomi del problema.</p>
       </div>
     </div>
   </div>
@@ -725,16 +828,16 @@
 <section class="chisono" id="chi-sono">
   <div class="wrap">
     <div class="section-head">
-      <h2>Chi sono</h2>
+      <h2 data-i18n="shared.nav.chiSono">Chi sono</h2>
     </div>
     <div class="grid">
       <div class="credenziali">
-        <div>Albo degli Psicologi del Piemonte, Sezione A</div>
-        <div>Dottore magistrale in Psicologia (Corso di laurea in Psicologia Cognitiva Applicata)</div>
-        <div>Analisi dati con R e SPSS</div>
-        <div>Specializzazione in Psicologia del Traffico e Mobilità Sostenibile</div>
+        <div data-i18n="shared.cred.albo">Albo degli Psicologi del Piemonte, Sezione A</div>
+        <div data-i18n="shared.cred.laurea">Dottore magistrale in Psicologia (Corso di laurea in Psicologia Cognitiva Applicata)</div>
+        <div data-i18n="shared.cred.analisi">Analisi dati con R e SPSS</div>
+        <div data-i18n="shared.cred.specializzazione">Specializzazione in Psicologia del Traffico e Mobilità Sostenibile</div>
       </div>
-      <blockquote>
+      <blockquote data-i18n="hr.chisono.quote">
         "Sono Vittorio Benvenuto, Psicologo abilitato e iscritto alla Sezione A dell'Albo del Piemonte. Ho un background in analisi dei dati (R, SPSS) e in Human Factors, che applico alla selezione, alla valutazione dello stress lavoro-correlato e all'analisi dei processi organizzativi".
       </blockquote>
     </div>
@@ -744,53 +847,53 @@
 <section class="ricerca">
   <div class="wrap">
     <div class="section-head">
-      <h2>Ricerca applicata</h2>
+      <h2 data-i18n="shared.ricerca.title">Ricerca applicata</h2>
     </div>
-    <p class="ricerca-cite">"Promuovere la Qualità della Vita Professionale nelle professioni d'aiuto: il ruolo dell'Intelligenza Emotiva di Tratto" — Primo Autore, in collaborazione con I.P.A.B. Luigi Mariutto, Mirano (VE) · 2025</p>
+    <p class="ricerca-cite" data-i18n="hr.ricerca.cite">"Promuovere la Qualità della Vita Professionale nelle professioni d'aiuto: il ruolo dell'Intelligenza Emotiva di Tratto" — Primo Autore, in collaborazione con I.P.A.B. Luigi Mariutto, Mirano (VE) · 2025</p>
 
     <div class="ricerca-grid single">
       <div class="ricerca-block" style="--accent:var(--ochre)">
-        <span class="tag">Ricerca in ambito HR</span>
-        <h3>Intelligenza Emotiva di Tratto e Qualità della Vita Professionale</h3>
-        <p>Come primo autore, ho condotto uno studio su 97 professionisti dell'I.P.A.B. Luigi Mariutto (OSS, infermieri e altre figure a contatto con gli ospiti), per capire come l'Intelligenza Emotiva di Tratto influisca sulla Qualità della Vita Professionale: da un lato la Soddisfazione da Compassione, cioè la gratificazione che si trae dal proprio lavoro di cura, dall'altro la Fatica da Compassione, che comprende Burnout e Stress Traumatico Secondario. I risultati mostrano l'intelligenza emotiva come una risorsa concreta e allenabile, utile sia per prevenire l'esaurimento professionale sia per aumentare l'appagamento di chi lavora nelle professioni d'aiuto.</p>
+        <span class="tag" data-i18n="hr.ricerca.tag">Ricerca in ambito HR</span>
+        <h3 data-i18n="hr.ricerca.h3">Intelligenza Emotiva di Tratto e Qualità della Vita Professionale</h3>
+        <p data-i18n="hr.ricerca.intro">Come primo autore, ho condotto uno studio su 97 professionisti dell'I.P.A.B. Luigi Mariutto (OSS, infermieri e altre figure a contatto con gli ospiti), per capire come l'Intelligenza Emotiva di Tratto influisca sulla Qualità della Vita Professionale: da un lato la Soddisfazione da Compassione, cioè la gratificazione che si trae dal proprio lavoro di cura, dall'altro la Fatica da Compassione, che comprende Burnout e Stress Traumatico Secondario. I risultati mostrano l'intelligenza emotiva come una risorsa concreta e allenabile, utile sia per prevenire l'esaurimento professionale sia per aumentare l'appagamento di chi lavora nelle professioni d'aiuto.</p>
       </div>
     </div>
 
     <div class="ricerca-stats">
       <div class="ricerca-stat">
         <div class="num">97</div>
-        <div class="lbl">professionisti coinvolti (OSS, infermieri, altri ruoli)</div>
+        <div class="lbl" data-i18n="hr.ricerca.stat1">professionisti coinvolti (OSS, infermieri, altri ruoli)</div>
       </div>
       <div class="ricerca-stat">
         <div class="num">3</div>
-        <div class="lbl">gruppi professionali messi a confronto</div>
+        <div class="lbl" data-i18n="hr.ricerca.stat2">gruppi professionali messi a confronto</div>
       </div>
       <div class="ricerca-stat">
         <div class="num">3</div>
-        <div class="lbl">ipotesi di ricerca testate</div>
+        <div class="lbl" data-i18n="hr.ricerca.stat3">ipotesi di ricerca testate</div>
       </div>
       <div class="ricerca-stat">
         <div class="num">-.69</div>
-        <div class="lbl">correlazione tra intelligenza emotiva e burnout</div>
+        <div class="lbl" data-i18n="hr.ricerca.stat4">correlazione tra intelligenza emotiva e burnout</div>
       </div>
     </div>
 
     <div class="ricerca-accordion">
       <details class="ricerca-acc">
-        <summary>TEIQue-SF e ProQoL-5: gli strumenti di misura
+        <summary><span data-i18n="hr.ricerca.acc1.title">TEIQue-SF e ProQoL-5: gli strumenti di misura</span>
           <svg class="chev" width="16" height="9" viewBox="0 0 16 9" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l7 7 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </summary>
-        <div class="acc-body">
+        <div class="acc-body" data-i18n-html="hr.ricerca.acc1.body">
           <p><strong>Trait Emotional Intelligence Questionnaire – Short Form (TEIQue-SF):</strong> 30 item su scala Likert a 7 punti, che restituiscono un punteggio globale di Intelligenza Emotiva di Tratto e quattro dimensioni — Benessere, Autocontrollo, Emotività, Socievolezza — più due sfaccettature indipendenti, Adattabilità e Automotivazione, secondo il modello di Petrides e Furnham.</p>
           <p><strong>Professional Quality of Life Scale (ProQoL-5):</strong> 20 item su scala Likert a 5 punti per la Fatica da Compassione, suddivisi in due sottoscale — Burnout e Stress Traumatico Secondario — più 10 item per la Soddisfazione da Compassione.</p>
           <p><strong>Questionario socio-demografico:</strong> raccoglie ruolo professionale e ore lavorate a settimana, oltre ai dati anagrafici di base. Compilazione su modulo cartaceo o tramite un Google Form identico nei contenuti.</p>
         </div>
       </details>
       <details class="ricerca-acc">
-        <summary>Metodologia
+        <summary><span data-i18n="hr.ricerca.acc2.title">Metodologia</span>
           <svg class="chev" width="16" height="9" viewBox="0 0 16 9" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l7 7 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </summary>
-        <div class="acc-body">
+        <div class="acc-body" data-i18n-html="hr.ricerca.acc2.body">
           <p>Disegno tra i soggetti (between-subjects): ogni partecipante ha risposto una sola volta al questionario, e i punteggi sono stati confrontati tra i tre gruppi professionali (OSS, infermieri, altri ruoli).</p>
           <ul>
             <li>101 professionisti reclutati, 4 esclusi come valori anomali (oltre 2,5 deviazioni standard dalla media); campione finale di 97 partecipanti (64 OSS, 9 infermieri, 24 altri ruoli), 75 donne, età media 48,75 anni</li>
@@ -800,10 +903,10 @@
         </div>
       </details>
       <details class="ricerca-acc">
-        <summary>Analisi statistiche e modelli
+        <summary><span data-i18n="hr.ricerca.acc3.title">Analisi statistiche e modelli</span>
           <svg class="chev" width="16" height="9" viewBox="0 0 16 9" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l7 7 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </summary>
-        <div class="acc-body">
+        <div class="acc-body" data-i18n-html="hr.ricerca.acc3.body">
           <p>Tutte le analisi sono state condotte in <strong>R</strong>. Prima delle regressioni, la collinearità tra i predittori è stata verificata con il <strong>Generalized Variance Inflation Factor (GVIF)</strong>, escludendone la presenza; la normalità dei residui è stata confermata con il <strong>test di Shapiro-Wilk</strong> per tutti e tre i modelli.</p>
           <ul>
             <li><strong>Regressioni lineari multiple</strong> selezionate con un approccio data-driven basato sull'<strong>Akaike Information Criterion (AIC)</strong>, una per ciascun esito: Soddisfazione da Compassione, Burnout e Stress Traumatico Secondario</li>
@@ -814,10 +917,10 @@
         </div>
       </details>
       <details class="ricerca-acc">
-        <summary>Risultati principali e implicazioni pratiche
+        <summary><span data-i18n="hr.ricerca.acc4.title">Risultati principali e implicazioni pratiche</span>
           <svg class="chev" width="16" height="9" viewBox="0 0 16 9" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l7 7 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </summary>
-        <div class="acc-body">
+        <div class="acc-body" data-i18n-html="hr.ricerca.acc4.body">
           <p>Il <strong>Benessere</strong> e, ancor più, l'<strong>Emotività</strong> predicono positivamente la Soddisfazione da Compassione: chi riconosce e gestisce meglio le proprie emozioni trae maggiore gratificazione dal lavoro di cura, in particolare tra OSS e infermieri rispetto alle altre figure professionali.</p>
           <p>Il punteggio globale di Intelligenza Emotiva è un predittore negativo del <strong>Burnout</strong>, con un effetto protettivo più marcato per gli OSS che per gli infermieri: questi ultimi, nel campione analizzato, presentano già livelli di Burnout significativamente più contenuti.</p>
           <p>Per lo <strong>Stress Traumatico Secondario</strong>, sono il Benessere e soprattutto l'<strong>Autocontrollo</strong> a fungere da fattori protettivi, a indicare che la capacità di regolare i propri impulsi e di gestire lo stress riduce concretamente pensieri intrusivi e ipervigilanza.</p>
@@ -829,11 +932,11 @@
     <div class="ricerca-links">
       <a class="ricerca-link primary" href="ricerca-qualita-vita-professionale.pdf" target="_blank" rel="noopener">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 2h9l5 5v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M14 2v5h5" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M8.5 13h7M8.5 16.5h7M8.5 9.5h3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
-        Leggi lo studio completo (PDF)
+        <span data-i18n="hr.ricerca.linkPdf">Leggi lo studio completo (PDF)</span>
       </a>
       <a class="ricerca-link" href="https://www.casaluigimariutto.it/ae01454/zf/index.php/servizi-aggiuntivi/index/index/idtesto/58" target="_blank" rel="noopener">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="7.5" stroke="currentColor" stroke-width="1.6"/><path d="M2.5 10h15M10 2.5c2.5 2 2.5 13 0 15M10 2.5c-2.5 2-2.5 13 0 15" stroke="currentColor" stroke-width="1.2"/><path d="M13 13.2l8 3-3.3 1.3L16.2 20.5 13 13.2Z" fill="currentColor"/></svg>
-        Visita il sito dell'ente
+        <span data-i18n="hr.ricerca.linkEnte">Visita il sito dell'ente</span>
       </a>
     </div>
   </div>
@@ -841,50 +944,50 @@
 
 <div class="modal-overlay" id="consultModal" hidden>
   <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-    <button class="modal-close" id="modalClose" aria-label="Chiudi">&times;</button>
+    <button class="modal-close" id="modalClose" data-i18n-attr="aria-label:shared.close" aria-label="Chiudi">&times;</button>
 
     <div class="modal-view" data-view="choice">
-      <h3 id="modal-title">Come preferisci essere contattato?</h3>
+      <h3 id="modal-title" data-i18n="shared.modal.choiceTitle">Come preferisci essere contattato?</h3>
       <div class="modal-choices">
         <button class="modal-choice-btn" data-target="phone">
-          <strong>Prenota una telefonata</strong>
-          <span>Lascia il tuo numero e i giorni/orari in cui preferisci essere richiamato</span>
+          <strong data-i18n="shared.modal.phoneBtnTitle">Prenota una telefonata</strong>
+          <span data-i18n="shared.modal.phoneBtnDesc">Lascia il tuo numero e i giorni/orari in cui preferisci essere richiamato</span>
         </button>
         <button class="modal-choice-btn" data-target="form">
-          <strong>Contattami tramite form</strong>
-          <span>Scrivimi direttamente il tuo messaggio</span>
+          <strong data-i18n="shared.modal.formBtnTitle">Contattami tramite form</strong>
+          <span data-i18n="shared.modal.formBtnDesc">Scrivimi direttamente il tuo messaggio</span>
         </button>
         <button class="modal-choice-btn" id="modalEmailBtn">
-          <strong>Scrivimi una mail</strong>
-          <span>Apri il tuo programma di posta con l'indirizzo già pronto</span>
+          <strong data-i18n="shared.modal.emailBtnTitle">Scrivimi una mail</strong>
+          <span data-i18n="shared.modal.emailBtnDesc">Apri il tuo programma di posta con l'indirizzo già pronto</span>
         </button>
       </div>
     </div>
 
     <div class="modal-view" data-view="phone" hidden>
-      <button class="modal-back" data-back>&larr; Indietro</button>
-      <h3>Prenota una telefonata</h3>
+      <button class="modal-back" data-back data-i18n="shared.modal.back">&larr; Indietro</button>
+      <h3 data-i18n="shared.modal.phoneTitle">Prenota una telefonata</h3>
       <form id="phoneForm">
         <input type="hidden" name="_subject" value="Richiesta di richiamata dal sito">
         <input type="hidden" name="tipo" value="Prenotazione telefonata">
-        <label>Il tuo numero di telefono
+        <label><span data-i18n="shared.modal.phoneNumberLabel">Il tuo numero di telefono</span>
           <input type="tel" name="telefono" required>
         </label>
-        <label>Giorno preferito
+        <label><span data-i18n="shared.modal.dayLabel">Giorno preferito</span>
           <select name="giorno">
-            <option>Qualsiasi giorno</option>
-            <option>Lunedì</option>
-            <option>Martedì</option>
-            <option>Mercoledì</option>
-            <option>Giovedì</option>
-            <option>Venerdì</option>
-            <option>Sabato</option>
-            <option>Domenica</option>
+            <option data-i18n="shared.modal.anyDay">Qualsiasi giorno</option>
+            <option data-i18n="shared.modal.mon">Lunedì</option>
+            <option data-i18n="shared.modal.tue">Martedì</option>
+            <option data-i18n="shared.modal.wed">Mercoledì</option>
+            <option data-i18n="shared.modal.thu">Giovedì</option>
+            <option data-i18n="shared.modal.fri">Venerdì</option>
+            <option data-i18n="shared.modal.sat">Sabato</option>
+            <option data-i18n="shared.modal.sun">Domenica</option>
           </select>
         </label>
-        <label>Fascia oraria preferita
+        <label><span data-i18n="shared.modal.timeLabel">Fascia oraria preferita</span>
           <select name="fascia_oraria">
-            <option>Qualsiasi orario</option>
+            <option data-i18n="shared.modal.anyTime">Qualsiasi orario</option>
             <option>9:00 / 10:00</option>
             <option>10:00 / 11:00</option>
             <option>11:00 / 12:00</option>
@@ -894,46 +997,48 @@
             <option>17:00 / 18:00</option>
           </select>
         </label>
-        <button type="submit" class="btn">Invia richiesta</button>
+        <button type="submit" class="btn" data-i18n="shared.modal.sendRequest">Invia richiesta</button>
       </form>
     </div>
 
     <div class="modal-view" data-view="form" hidden>
-      <button class="modal-back" data-back>&larr; Indietro</button>
-      <h3>Scrivimi</h3>
+      <button class="modal-back" data-back data-i18n="shared.modal.back">&larr; Indietro</button>
+      <h3 data-i18n="shared.modal.writeTitle">Scrivimi</h3>
       <form id="contactForm">
         <input type="hidden" name="_subject" value="Messaggio dal sito">
         <input type="hidden" name="tipo" value="Messaggio">
-        <label>La tua email
+        <label><span data-i18n="shared.modal.emailLabel">La tua email</span>
           <input type="email" name="email" required>
         </label>
-        <label>Messaggio
+        <label><span data-i18n="shared.modal.messageLabel">Messaggio</span>
           <textarea name="messaggio" rows="5" required></textarea>
         </label>
-        <button type="submit" class="btn">Invia messaggio</button>
+        <button type="submit" class="btn" data-i18n="shared.modal.sendMessage">Invia messaggio</button>
       </form>
     </div>
 
     <div class="modal-view" data-view="success" hidden>
-      <h3>Richiesta inviata</h3>
-      <p>Grazie, ho ricevuto la tua richiesta e ti risponderò al più presto.</p>
-      <button class="btn" id="successCloseBtn">Chiudi</button>
+      <h3 data-i18n="shared.modal.successTitle">Richiesta inviata</h3>
+      <p data-i18n="shared.modal.successText">Grazie, ho ricevuto la tua richiesta e ti risponderò al più presto.</p>
+      <button class="btn" id="successCloseBtn" data-i18n="shared.modal.close">Chiudi</button>
     </div>
   </div>
 </div>
 
 <footer id="contatti">
   <div class="wrap">
-    <h2>Contatti</h2>
-    <p class="contact-line">Per una consulenza o un preventivo, scrivimi: <a href="mailto:consulenza@vittoriobenvenuto.it">consulenza@vittoriobenvenuto.it</a> oppure chiama il numero <a href="tel:+393937462110">393 746 2110</a>.</p>
+    <h2 data-i18n="shared.footer.title">Contatti</h2>
+    <p class="contact-line" data-i18n-html="shared.footer.contactLine">Per una consulenza o un preventivo, scrivimi: <a href="mailto:consulenza@vittoriobenvenuto.it">consulenza@vittoriobenvenuto.it</a> oppure chiama il numero <a href="tel:+393937462110">393 746 2110</a>.</p>
     <div class="meta">
-      <span>P.IVA 02858170034</span>
-      <span>Iscritto all'Albo degli Psicologi del Piemonte, Sezione A — n. 12741</span>
+      <span data-i18n="shared.footer.piva">P.IVA 02858170034</span>
+      <span data-i18n="shared.footer.albo">Iscritto all'Albo degli Psicologi del Piemonte, Sezione A — n. 12741</span>
       <span>PEC: vittorio.benvenuto@psypec.it</span>
     </div>
   </div>
 </footer>
 
+<script src="i18n-data.js"></script>
+<script src="i18n.js"></script>
 <script>
   document.querySelectorAll('.section-head, .mobility, footer').forEach(function(el){
     var obs = new IntersectionObserver(function(entries){

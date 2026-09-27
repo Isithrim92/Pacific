@@ -2,6 +2,8 @@
 <html lang="it">
 <head>
 <meta charset="UTF-8">
+<script>document.documentElement.classList.add('i18n-pending');</script>
+<style>html.i18n-pending body{visibility:hidden;}</style>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Consulenza ESG e Mobility Management | Vittorio Benvenuto</title>
 <meta name="description" content="Consulenza ESG e CSRD per la mobilità aziendale: Piani di Spostamento Casa-Lavoro, sicurezza stradale e formazione, con un approccio scientifico alle scelte di mobilità e ai dati richiesti dalla rendicontazione di sostenibilità.">
@@ -104,6 +106,12 @@
     color:var(--muted);
     margin-top:2px;
   }
+  .header-right{
+    display:flex;
+    align-items:center;
+    gap:28px;
+    flex-wrap:wrap;
+  }
   nav{
     display:flex;
     gap:28px;
@@ -118,6 +126,77 @@
   nav a:hover, nav a:focus-visible{
     border-color:var(--ink);
   }
+  /* ---------- SELETTORE LINGUA ---------- */
+  .lang-switch{ position:relative; }
+  .lang-switch-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    background:rgba(20,24,29,0.05);
+    border:none;
+    border-radius:999px;
+    padding:10px 18px;
+    cursor:pointer;
+    font-family:'IBM Plex Sans', sans-serif;
+    font-size:14px;
+    font-weight:500;
+    color:var(--ink);
+    transition:background .2s ease;
+  }
+  .lang-switch-btn:hover, .lang-switch-btn[aria-expanded="true"]{
+    background:rgba(20,24,29,0.09);
+  }
+  .lang-flags{ display:flex; align-items:center; }
+  .lang-flags .flag{
+    width:18px; height:13px;
+    border-radius:2px;
+    overflow:hidden;
+    display:flex;
+    box-shadow:0 0 0 1.5px var(--white);
+    margin-left:-6px;
+  }
+  .lang-flags .flag:first-child{ margin-left:0; }
+  .lang-flags .flag svg{ width:100%; height:100%; display:block; }
+  .lang-chevron{ color:var(--muted); flex-shrink:0; transition:transform .2s ease; }
+  .lang-switch-btn[aria-expanded="true"] .lang-chevron{ transform:rotate(180deg); }
+  .lang-menu{
+    position:absolute;
+    top:calc(100% + 8px);
+    right:0;
+    background:var(--white);
+    border:1px solid var(--line);
+    border-radius:10px;
+    box-shadow:0 12px 28px rgba(20,24,29,0.16);
+    padding:6px;
+    min-width:180px;
+    z-index:250;
+  }
+  .lang-menu[hidden]{ display:none; }
+  .lang-option{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    width:100%;
+    padding:10px 10px;
+    border:none;
+    background:none;
+    border-radius:6px;
+    cursor:pointer;
+    font-family:inherit;
+    font-size:14.5px;
+    color:var(--ink);
+    text-align:left;
+  }
+  .lang-option:hover, .lang-option:focus-visible{ background:var(--paper-alt); }
+  .lang-option .flag{
+    width:20px; height:14px;
+    border-radius:2px;
+    overflow:hidden;
+    flex-shrink:0;
+    box-shadow:0 0 0 1px var(--line);
+  }
+  .lang-option .flag svg{ width:100%; height:100%; display:block; }
+  .lang-option.active{ font-weight:600; }
   /* ---------- HERO ---------- */
   .hero{
     padding:64px 0 88px;
@@ -949,32 +1028,56 @@
 <header>
   <div class="wrap">
     <div class="brand"><a href="index.html" style="text-decoration:none;color:inherit;">Vittorio Benvenuto</a>
-      <span>Psicologo del Lavoro · Mobility Manager</span>
+      <span data-i18n="mob.brand.tag">Psicologo del Lavoro · Mobility Manager</span>
     </div>
+    <div class="header-right">
     <nav>
-      <a href="#" id="openChiSono">Chi sono</a>
-      <a href="#ruolo">Il ruolo</a>
-      <a href="#competenze">Competenze</a>
-      <a href="#contatti">Contatti</a>
-      <a href="risorse-umane.html">Risorse Umane</a>
+      <a href="#" id="openChiSono" data-i18n="shared.nav.chiSono">Chi sono</a>
+      <a href="#ruolo" data-i18n="mob.nav.ruolo">Il ruolo</a>
+      <a href="#competenze" data-i18n="mob.nav.competenze">Competenze</a>
+      <a href="#contatti" data-i18n="shared.nav.contatti">Contatti</a>
+      <a href="risorse-umane.html" data-i18n="shared.nav.risorseUmane">Risorse Umane</a>
     </nav>
+    <div class="lang-switch" id="langSwitch">
+      <button class="lang-switch-btn" id="langSwitchBtn" type="button" aria-haspopup="listbox" aria-expanded="false">
+        <span class="lang-flags" aria-hidden="true">
+          <span class="flag"><svg viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg"><rect width="10" height="20" fill="#009246"/><rect x="10" width="10" height="20" fill="#fff"/><rect x="20" width="10" height="20" fill="#ce2b37"/></svg></span>
+          <span class="flag"><svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="40" fill="#012169"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#fff" stroke-width="8"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#C8102E" stroke-width="4"/><path d="M30,0 V40 M0,20 H60" stroke="#fff" stroke-width="14"/><path d="M30,0 V40 M0,20 H60" stroke="#C8102E" stroke-width="8"/></svg></span>
+          <span class="flag"><svg viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg"><rect width="30" height="10" fill="#0057b7"/><rect y="10" width="30" height="10" fill="#ffd700"/></svg></span>
+        </span>
+        <span class="lang-current" id="langCurrentLabel">Italiano</span>
+        <svg class="lang-chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="lang-menu" id="langMenu" role="listbox" hidden>
+        <button class="lang-option" type="button" data-lang="it" role="option">
+          <span class="flag"><svg viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg"><rect width="10" height="20" fill="#009246"/><rect x="10" width="10" height="20" fill="#fff"/><rect x="20" width="10" height="20" fill="#ce2b37"/></svg></span> Italiano
+        </button>
+        <button class="lang-option" type="button" data-lang="en" role="option">
+          <span class="flag"><svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="40" fill="#012169"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#fff" stroke-width="8"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#C8102E" stroke-width="4"/><path d="M30,0 V40 M0,20 H60" stroke="#fff" stroke-width="14"/><path d="M30,0 V40 M0,20 H60" stroke="#C8102E" stroke-width="8"/></svg></span> English
+        </button>
+        <button class="lang-option" type="button" data-lang="uk" role="option">
+          <span class="flag"><svg viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg"><rect width="30" height="10" fill="#0057b7"/><rect y="10" width="30" height="10" fill="#ffd700"/></svg></span> Українська
+        </button>
+      </div>
+    </div>
+    </div>
   </div>
 </header>
 
 <section class="hero">
   <div class="wrap eyebrow-row">
-    <div class="hero-eyebrow">Psicologia del Traffico applicata</div>
+    <div class="hero-eyebrow" data-i18n="mob.hero.eyebrow">Psicologia del Traffico applicata</div>
   </div>
   <div class="wrap">
     <div class="hero-text">
-      <h1>Una mobilità più efficiente parte da come le persone scelgono di muoversi</h1>
-      <p class="lede">Piani di spostamento casa-lavoro, sicurezza stradale e formazione, con un approccio scientifico alle scelte di mobilità.</p>
+      <h1 data-i18n="mob.hero.h1">Una mobilità più efficiente parte da come le persone scelgono di muoversi</h1>
+      <p class="lede" data-i18n="mob.hero.lede">Piani di spostamento casa-lavoro, sicurezza stradale e formazione, con un approccio scientifico alle scelte di mobilità.</p>
       <div class="cta-row">
-        <a class="btn" href="#contatti" id="openConsultModal">Richiedi una consulenza</a>
-        <a class="btn-ghost" href="#ruolo">Scopri di più</a>
+        <a class="btn" href="#contatti" id="openConsultModal" data-i18n="shared.cta.consulenza">Richiedi una consulenza</a>
+        <a class="btn-ghost" href="#ruolo" data-i18n="mob.hero.scopriDiPiu">Scopri di più</a>
       </div>
     </div>
-    <img class="hero-photo" src="foto-vittorio.jpg" alt="Ritratto di Vittorio Benvenuto">
+    <img class="hero-photo" src="foto-vittorio.jpg" alt="Ritratto di Vittorio Benvenuto" data-i18n-attr="alt:shared.fotoAlt">
   </div>
 </section>
 
@@ -983,15 +1086,15 @@
     <div class="box">
       <div>
         <span class="badge">ESG</span>
-        <h2>La mobilità del personale è già una questione ESG</h2>
-        <p>Gli obblighi di rendicontazione di sostenibilità, con la direttiva CSRD (UE 2022/2464), riguardano un numero crescente di imprese, non più solo le grandi società quotate. La mobilità casa-lavoro tocca direttamente i pilastri Ambientale e Sociale, e può diventare un dato concreto da documentare.</p>
+        <h2 data-i18n="mob.esg.title">La mobilità del personale è già una questione ESG</h2>
+        <p data-i18n="mob.esg.p">Gli obblighi di rendicontazione di sostenibilità, con la direttiva CSRD (UE 2022/2464), riguardano un numero crescente di imprese, non più solo le grandi società quotate. La mobilità casa-lavoro tocca direttamente i pilastri Ambientale e Sociale, e può diventare un dato concreto da documentare.</p>
       </div>
       <ul>
-        <li>Redazione del Piano Spostamento Casa-Lavoro (PSCL) orientata anche ai criteri ESG</li>
-        <li>Interventi di efficientamento della produttività attraverso il miglioramento della mobilità</li>
-        <li>Raccolta e analisi dei dati della mobilità del personale, utili per valutare l'efficacia degli interventi e per considerarli nella rendicontazione di sostenibilità</li>
-        <li>Interventi sulla componente Sociale, tra sicurezza stradale e benessere dei lavoratori</li>
-        <li>Servizi di formazione su temi inerenti alla direttiva europea CSRD</li>
+        <li data-i18n="mob.esg.li1">Redazione del Piano Spostamento Casa-Lavoro (PSCL) orientata anche ai criteri ESG</li>
+        <li data-i18n="mob.esg.li2">Interventi di efficientamento della produttività attraverso il miglioramento della mobilità</li>
+        <li data-i18n="mob.esg.li3">Raccolta e analisi dei dati della mobilità del personale, utili per valutare l'efficacia degli interventi e per considerarli nella rendicontazione di sostenibilità</li>
+        <li data-i18n="mob.esg.li4">Interventi sulla componente Sociale, tra sicurezza stradale e benessere dei lavoratori</li>
+        <li data-i18n="mob.esg.li5">Servizi di formazione su temi inerenti alla direttiva europea CSRD</li>
       </ul>
     </div>
     <div class="esg-arrow" aria-hidden="true">
@@ -999,29 +1102,29 @@
       <svg class="c2" width="26" height="14" viewBox="0 0 26 14"><path d="M2 2l11 10L24 2" stroke="var(--rust)" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
       <svg class="c3" width="26" height="14" viewBox="0 0 26 14"><path d="M2 2l11 10L24 2" stroke="var(--rust)" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </div>
-    <a href="#livelli" class="esg-cta">Scopri le consulenze disponibili in ambito ESG <span class="arrow">→</span></a>
+    <a href="#livelli" class="esg-cta" data-i18n-html="mob.esg.cta">Scopri le consulenze disponibili in ambito ESG <span class="arrow">→</span></a>
   </div>
 </section>
 
 <section class="intro">
   <div class="wrap">
-    <p>Il bisogno di spostarsi da un punto A a un punto B è alla base di quasi ogni attività quotidiana.</p>
-    <p>Aziende, pubbliche amministrazioni, istituti scolastici, autoscuole, centri di istruzione automobilistica ed enti per la promozione della sicurezza stradale condividono la stessa esigenza: rendere più efficiente la mobilità delle persone che rappresentano.</p>
+    <p data-i18n="mob.intro.p1">Il bisogno di spostarsi da un punto A a un punto B è alla base di quasi ogni attività quotidiana.</p>
+    <p data-i18n="mob.intro.p2">Aziende, pubbliche amministrazioni, istituti scolastici, autoscuole, centri di istruzione automobilistica ed enti per la promozione della sicurezza stradale condividono la stessa esigenza: rendere più efficiente la mobilità delle persone che rappresentano.</p>
   </div>
 </section>
 
 <section class="mobility" id="ruolo">
   <div class="wrap">
     <div class="grid">
-      <h2>Il Mobility Manager: il ruolo previsto dalla legge</h2>
+      <h2 data-i18n="mob.ruolo.title">Il Mobility Manager: il ruolo previsto dalla legge</h2>
       <div class="norma">
         <div class="blocco">
-          <div class="label">Riferimento normativo</div>
-          <p style="margin:0;">Il <strong>Decreto Rilancio (D.L. 34/2020, convertito in Legge 77/2020)</strong> ha reso obbligatoria la figura del Mobility Manager per le imprese con oltre 100 dipendenti in area metropolitana, e la incentiva per le altre.</p>
+          <div class="label" data-i18n="mob.ruolo.rifLabel">Riferimento normativo</div>
+          <p style="margin:0;" data-i18n-html="mob.ruolo.rifText">Il <strong>Decreto Rilancio (D.L. 34/2020, convertito in Legge 77/2020)</strong> ha reso obbligatoria la figura del Mobility Manager per le imprese con oltre 100 dipendenti in area metropolitana, e la incentiva per le altre.</p>
         </div>
         <div class="blocco">
-          <div class="label">Il mio contributo</div>
-          <p style="margin:0;">Grazie alla mia formazione specifica in ambito di Psicologia del Traffico, mi occupo della redazione del Piano Spostamento Casa-Lavoro (PSCL) e dell'analisi del personale per quanto riguarda le scelte di mobilità, con un taglio che tiene conto anche dell'impatto che esse hanno su stress e puntualità, non soltanto dell'aspetto ambientale.</p>
+          <div class="label" data-i18n="mob.ruolo.contribLabel">Il mio contributo</div>
+          <p style="margin:0;" data-i18n="mob.ruolo.contribText">Grazie alla mia formazione specifica in ambito di Psicologia del Traffico, mi occupo della redazione del Piano Spostamento Casa-Lavoro (PSCL) e dell'analisi del personale per quanto riguarda le scelte di mobilità, con un taglio che tiene conto anche dell'impatto che esse hanno su stress e puntualità, non soltanto dell'aspetto ambientale.</p>
         </div>
       </div>
     </div>
@@ -1031,57 +1134,57 @@
 <section class="produttivita">
   <div class="wrap">
     <div class="section-head">
-      <h2>Ridurre lo stress pre-lavorativo può migliorare la produttività</h2>
+      <h2 data-i18n="mob.produttivita.title">Ridurre lo stress pre-lavorativo può migliorare la produttività</h2>
     </div>
-    <p>Molte aziende riferiscono di avere già predisposto misure per una mobilità più sostenibile ed efficiente, come il car-pooling aziendale, ma di non vederle utilizzate dai dipendenti. Le infrastrutture e la logistica sono importanti, ma anche il fattore umano è fondamentale per capire perché le persone scelgono, o non scelgono, di cambiare le proprie abitudini di mobilità.</p>
-    <p>Attraverso le evidenze scientifiche più aggiornate, e con l'impiego della tecnologia più adatta a seconda delle necessità e delle disponibilità, è possibile lavorare per cambiare la cultura della mobilità. Un intervento di questo tipo potrebbe promuovere il benessere dei lavoratori, riducendo lo stress associato alla guida durante l'attività lavorativa, e potrebbe avere effetti cumulativi sull'intera collettività urbana: lo stesso numero di persone in circolazione, ma con meno auto private occupate da una sola persona, città più sgombre e tempi di percorrenza ridotti anche per chi lavora nel trasporto merci.</p>
+    <p data-i18n="mob.produttivita.p1">Molte aziende riferiscono di avere già predisposto misure per una mobilità più sostenibile ed efficiente, come il car-pooling aziendale, ma di non vederle utilizzate dai dipendenti. Le infrastrutture e la logistica sono importanti, ma anche il fattore umano è fondamentale per capire perché le persone scelgono, o non scelgono, di cambiare le proprie abitudini di mobilità.</p>
+    <p data-i18n="mob.produttivita.p2">Attraverso le evidenze scientifiche più aggiornate, e con l'impiego della tecnologia più adatta a seconda delle necessità e delle disponibilità, è possibile lavorare per cambiare la cultura della mobilità. Un intervento di questo tipo potrebbe promuovere il benessere dei lavoratori, riducendo lo stress associato alla guida durante l'attività lavorativa, e potrebbe avere effetti cumulativi sull'intera collettività urbana: lo stesso numero di persone in circolazione, ma con meno auto private occupate da una sola persona, città più sgombre e tempi di percorrenza ridotti anche per chi lavora nel trasporto merci.</p>
   </div>
 </section>
 
 <section class="competenze" id="competenze">
   <div class="wrap">
     <div class="section-head">
-      <h2>Altre competenze in sicurezza stradale</h2>
+      <h2 data-i18n="mob.competenze.title">Altre competenze in sicurezza stradale</h2>
     </div>
 
     <div class="competenza-item">
       <div>
-        <h3>Valutazione dell'idoneità alla guida</h3>
-        <span class="audience-tag">Autoscuole · Enti di istruzione automobilistica</span>
+        <h3 data-i18n="mob.competenze.c1.title">Valutazione dell'idoneità alla guida</h3>
+        <span class="audience-tag" data-i18n="mob.competenze.c1.tag">Autoscuole · Enti di istruzione automobilistica</span>
       </div>
-      <p>Valuto l'idoneità alla guida e progetto percorsi di training per gruppi di utenti della strada con diversi livelli di propensione al rischio.</p>
+      <p data-i18n="mob.competenze.c1.text">Valuto l'idoneità alla guida e progetto percorsi di training per gruppi di utenti della strada con diversi livelli di propensione al rischio.</p>
     </div>
 
     <div class="competenza-item">
       <div>
-        <h3>Formazione alla guida sicura</h3>
-        <span class="audience-tag">Aziende · Enti pubblici</span>
+        <h3 data-i18n="mob.competenze.c2.title">Formazione alla guida sicura</h3>
+        <span class="audience-tag" data-i18n="mob.competenze.c2.tag">Aziende · Enti pubblici</span>
       </div>
-      <p>Pianifico e realizzo percorsi di formazione rivolti alla popolazione generale, orientati a una guida più sicura e consapevole.</p>
+      <p data-i18n="mob.competenze.c2.text">Pianifico e realizzo percorsi di formazione rivolti alla popolazione generale, orientati a una guida più sicura e consapevole.</p>
     </div>
 
     <div class="competenza-item">
       <div>
-        <h3>Formazione per conducenti professionisti</h3>
-        <span class="audience-tag">Aziende di trasporto</span>
+        <h3 data-i18n="mob.competenze.c3.title">Formazione per conducenti professionisti</h3>
+        <span class="audience-tag" data-i18n="mob.competenze.c3.tag">Aziende di trasporto</span>
       </div>
-      <p>Progetto moduli formativi sulla consapevolezza dell'idoneità fisica e mentale alla guida, all'interno dei percorsi per la Carta di Qualificazione del Conducente (CQC).</p>
+      <p data-i18n-html="mob.competenze.c3.text">Progetto moduli formativi sulla consapevolezza dell'idoneità fisica e mentale alla guida, all'interno dei percorsi per la Carta di Qualificazione del Conducente (CQC).</p>
     </div>
 
     <div class="competenza-item">
       <div>
-        <h3>Sicurezza stradale e mobilità sostenibile</h3>
-        <span class="audience-tag">Scuole · Autoscuole · Aziende</span>
+        <h3 data-i18n="mob.competenze.c4.title">Sicurezza stradale e mobilità sostenibile</h3>
+        <span class="audience-tag" data-i18n="mob.competenze.c4.tag">Scuole · Autoscuole · Aziende</span>
       </div>
-      <p>Progetto interventi rivolti a scuole di ogni ordine e grado, enti di istruzione automobilistica, aziende e categorie di trasportatori, per migliorare la sicurezza stradale e promuovere spostamenti più sostenibili.</p>
+      <p data-i18n="mob.competenze.c4.text">Progetto interventi rivolti a scuole di ogni ordine e grado, enti di istruzione automobilistica, aziende e categorie di trasportatori, per migliorare la sicurezza stradale e promuovere spostamenti più sostenibili.</p>
     </div>
 
     <div class="competenza-item">
       <div>
-        <h3>Regolazione emotiva alla guida</h3>
-        <span class="audience-tag">Aziende · Privati</span>
+        <h3 data-i18n="mob.competenze.c5.title">Regolazione emotiva alla guida</h3>
+        <span class="audience-tag" data-i18n="mob.competenze.c5.tag">Aziende · Privati</span>
       </div>
-      <p>Sviluppo e conduco percorsi di formazione per la regolazione emotiva alla guida, con particolare attenzione alla rabbia al volante.</p>
+      <p data-i18n="mob.competenze.c5.text">Sviluppo e conduco percorsi di formazione per la regolazione emotiva alla guida, con particolare attenzione alla rabbia al volante.</p>
     </div>
   </div>
 </section>
@@ -1089,53 +1192,53 @@
 <section class="ricerca">
   <div class="wrap">
     <div class="section-head">
-      <h2>Ricerca applicata</h2>
+      <h2 data-i18n="shared.ricerca.title">Ricerca applicata</h2>
     </div>
-    <p class="ricerca-cite">Tesi di Laurea Magistrale in Psicologia Cognitiva Applicata — Università degli Studi di Padova (relatrice: prof.ssa Mariaelena Tagliabue) · 2024–2025</p>
+    <p class="ricerca-cite" data-i18n="mob.ricerca.cite">Tesi di Laurea Magistrale in Psicologia Cognitiva Applicata — Università degli Studi di Padova (relatrice: prof.ssa Mariaelena Tagliabue) · 2024–2025</p>
 
     <div class="ricerca-grid single">
       <div class="ricerca-block" style="--accent:var(--slate)">
-        <span class="tag">Guida simulata (VR)</span>
-        <h3>Intelligenza Emotiva, Empatia e comportamento oculare alla guida</h3>
-        <p>La mia tesi magistrale ha analizzato il comportamento visivo di 52 motociclisti in un simulatore di guida, confrontando un percorso a bassa densità di traffico con uno ad alta densità in cui erano inserite scene di rischio (un pedone che attraversa all'improvviso, un ostacolo in rotatoria, un veicolo che ostruisce la carreggiata). L'obiettivo era capire se e come i punteggi di Intelligenza Emotiva ed Empatia dei partecipanti si associno a strategie visive diverse — dove guardano, quanto a lungo, con quale ampiezza di esplorazione — nei momenti di maggiore carico cognitivo. I dati raccolti sono utilizzabili sia per calibrare sistemi di assistenza alla guida (ADAS) sensibili al carico cognitivo, sia per progettare programmi di formazione alla guida difensiva.</p>
+        <span class="tag" data-i18n="mob.ricerca.tag">Guida simulata (VR)</span>
+        <h3 data-i18n="mob.ricerca.h3">Intelligenza Emotiva, Empatia e comportamento oculare alla guida</h3>
+        <p data-i18n="mob.ricerca.intro">La mia tesi magistrale ha analizzato il comportamento visivo di 52 motociclisti in un simulatore di guida, confrontando un percorso a bassa densità di traffico con uno ad alta densità in cui erano inserite scene di rischio (un pedone che attraversa all'improvviso, un ostacolo in rotatoria, un veicolo che ostruisce la carreggiata). L'obiettivo era capire se e come i punteggi di Intelligenza Emotiva ed Empatia dei partecipanti si associno a strategie visive diverse — dove guardano, quanto a lungo, con quale ampiezza di esplorazione — nei momenti di maggiore carico cognitivo. I dati raccolti sono utilizzabili sia per calibrare sistemi di assistenza alla guida (ADAS) sensibili al carico cognitivo, sia per progettare programmi di formazione alla guida difensiva.</p>
       </div>
     </div>
 
     <div class="ricerca-stats">
       <div class="ricerca-stat">
         <div class="num">52</div>
-        <div class="lbl">partecipanti, 19–46 anni</div>
+        <div class="lbl" data-i18n="mob.ricerca.stat1">partecipanti, 19–46 anni</div>
       </div>
       <div class="ricerca-stat">
         <div class="num">2</div>
-        <div class="lbl">percorsi sperimentali a confronto</div>
+        <div class="lbl" data-i18n="mob.ricerca.stat2">percorsi sperimentali a confronto</div>
       </div>
       <div class="ricerca-stat">
         <div class="num">4</div>
-        <div class="lbl">ipotesi sperimentali testate</div>
+        <div class="lbl" data-i18n="mob.ricerca.stat3">ipotesi sperimentali testate</div>
       </div>
       <div class="ricerca-stat">
         <div class="num">5</div>
-        <div class="lbl">scene di rischio inserite nel percorso</div>
+        <div class="lbl" data-i18n="mob.ricerca.stat4">scene di rischio inserite nel percorso</div>
       </div>
     </div>
 
     <div class="ricerca-accordion">
       <details class="ricerca-acc">
-        <summary>Simulatore di guida e tecnologia di tracciamento oculare
-          <svg class="chev" width="16" height="9" viewBox="0 0 16 9" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l7 7 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <summary><span data-i18n="mob.ricerca.acc1.title">Simulatore di guida e tecnologia di tracciamento oculare</span>
+                    <svg class="chev" width="16" height="9" viewBox="0 0 16 9" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l7 7 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </summary>
-        <div class="acc-body">
+        <div class="acc-body" data-i18n-html="mob.ricerca.acc1.body">
           <p><strong>Simulatore di guida Lander:</strong> un motociclo montato su una pedana con meccanismi di beccheggio e rollio, davanti a tre schermi che offrono un campo visivo a 150°. Consente di personalizzare traffico, meteo, luminosità e di inserire scene di rischio in punti precisi del percorso.</p>
           <p><strong>Occhiali eye-tracking SMI ETG 2 wireless:</strong> indossabili, con tracciamento binoculare fino a 120 Hz e un'accuratezza di 0,5°, usati per misurare dilatazione pupillare, ammiccamenti e movimenti saccadici durante la guida.</p>
           <p><strong>Batteria di questionari psicometrici</strong> (compilati online prima della prova): Trait Meta-Mood Scale (TMMS), Basic Empathy Scale (BES) e Trait Emotional Intelligence Questionnaire – Short Form (TEIQue-SF), oltre a un questionario socio-demografico.</p>
         </div>
       </details>
       <details class="ricerca-acc">
-        <summary>Metodologia
-          <svg class="chev" width="16" height="9" viewBox="0 0 16 9" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l7 7 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <summary><span data-i18n="mob.ricerca.acc2.title">Metodologia</span>
+                    <svg class="chev" width="16" height="9" viewBox="0 0 16 9" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l7 7 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </summary>
-        <div class="acc-body">
+        <div class="acc-body" data-i18n-html="mob.ricerca.acc2.body">
           <p>Disegno sperimentale entro i soggetti, con due percorsi somministrati in ordine bilanciato tra i partecipanti: uno a bassa densità di traffico e senza scene di rischio, l'altro ad alta densità con cinque scene di rischio inserite lungo il tragitto (es. un tombino aperto, un pedone che attraversa d'improvviso, un veicolo che ostruisce una rotatoria).</p>
           <ul>
             <li>Campione di 52 partecipanti (28 donne), tutti patentati B da almeno un anno e con almeno 1.000 km percorsi nell'ultimo anno</li>
@@ -1146,10 +1249,10 @@
         </div>
       </details>
       <details class="ricerca-acc">
-        <summary>Analisi statistiche e modelli
-          <svg class="chev" width="16" height="9" viewBox="0 0 16 9" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l7 7 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <summary><span data-i18n="mob.ricerca.acc3.title">Analisi statistiche e modelli</span>
+                    <svg class="chev" width="16" height="9" viewBox="0 0 16 9" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l7 7 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </summary>
-        <div class="acc-body">
+        <div class="acc-body" data-i18n-html="mob.ricerca.acc3.body">
           <p>Analisi di potenza a priori con <strong>G*Power</strong>, per stimare la numerosità campionaria necessaria a rilevare effetti di entità media; tutte le analisi statistiche sono state condotte con <strong>IBM SPSS (v29)</strong>.</p>
           <ul>
             <li><strong>ANOVA/MANOVA a misure ripetute</strong>, per confrontare i parametri oculari tra i due percorsi</li>
@@ -1160,10 +1263,10 @@
         </div>
       </details>
       <details class="ricerca-acc">
-        <summary>Risultati principali e applicazioni pratiche
-          <svg class="chev" width="16" height="9" viewBox="0 0 16 9" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l7 7 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <summary><span data-i18n="mob.ricerca.acc4.title">Risultati principali e applicazioni pratiche</span>
+                    <svg class="chev" width="16" height="9" viewBox="0 0 16 9" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l7 7 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </summary>
-        <div class="acc-body">
+        <div class="acc-body" data-i18n-html="mob.ricerca.acc4.body">
           <p>La presenza di scene di rischio aumenta il carico cognitivo dei conducenti, rilevabile in tempo reale tramite dilatazione pupillare e durata delle saccadi. Una maggiore <strong>empatia cognitiva</strong> si associa a un'esplorazione visiva più ampia dell'ambiente stradale, utile per accorgersi anche di pedoni e ciclisti; buoni livelli di <strong>autocontrollo emotivo</strong> e di chiarezza nel riconoscere i propri stati emotivi si associano invece a un'attenzione più mirata sugli stimoli rischiosi e a una guida più stabile.</p>
           <p>Sul piano applicativo, questi risultati indicano che il rilevamento dei parametri oculari può contribuire a sistemi di sicurezza alla guida (ADAS) sensibili al carico cognitivo del conducente, e che i programmi di formazione alla guida difensiva possono trarre beneficio dall'includere moduli di sviluppo dell'empatia e di regolazione emotiva.</p>
         </div>
@@ -1175,103 +1278,103 @@
 <section class="livelli" id="livelli">
   <div class="wrap">
     <div class="section-head">
-      <h2>Consulenze ESG evidence-based</h2>
-      <p class="subtitle">I livelli di consulenza</p>
+      <h2 data-i18n="mob.livelli.title">Consulenze ESG evidence-based</h2>
+      <p class="subtitle" data-i18n="mob.livelli.subtitle">I livelli di consulenza</p>
     </div>
-    <p class="livelli-intro">Molte aziende non sanno bene a quale figura rivolgersi per la mobilità del personale, e finiscono per pensare solo in termini di logistica e infrastrutture. Il nodo, però, è spesso comportamentale: anche quando gli strumenti giusti sono già disponibili, resta da capire perché le persone li usano poco, o non li usano affatto. È qui che si inserisce il mio lavoro, ad affiancare la componente logistica, non a sostituirla.</p>
+    <p class="livelli-intro" data-i18n="mob.livelli.intro">Molte aziende non sanno bene a quale figura rivolgersi per la mobilità del personale, e finiscono per pensare solo in termini di logistica e infrastrutture. Il nodo, però, è spesso comportamentale: anche quando gli strumenti giusti sono già disponibili, resta da capire perché le persone li usano poco, o non li usano affatto. È qui che si inserisce il mio lavoro, ad affiancare la componente logistica, non a sostituirla.</p>
 
     <div class="livello-item">
       <div>
-        <h3>Audit e diagnosi</h3>
-        <span class="livello-tag">Livello 1</span>
+        <h3 data-i18n="mob.livelli.l1.title">Audit e diagnosi</h3>
+        <span class="livello-tag" data-i18n="mob.livelli.l1.tag">Livello 1</span>
       </div>
-      <p>Una fotografia chiara della situazione attuale, costruita raccogliendo dati concreti sulle abitudini di spostamento del personale. Il risultato è un quadro dei punti di forza e delle criticità, senza ancora entrare nel merito delle soluzioni. È il punto di partenza più naturale per chi vuole prima capire dove si trova, e decidere solo in un secondo momento come muoversi.</p>
-    </div>
-
-    <div class="livello-item">
-      <div>
-        <h3>Audit con raccomandazioni sintetiche</h3>
-        <span class="livello-tag">Livello 2</span>
-      </div>
-      <p>Comprende la stessa raccolta dati del livello precedente, con in più una lettura sintetica delle priorità emerse, utile per orientarsi tra le criticità individuate. Non comprende invece la progettazione dell'intervento vero e proprio, la quale rimane indicata solo nelle sue linee generali.</p>
+      <p data-i18n="mob.livelli.l1.text">Una fotografia chiara della situazione attuale, costruita raccogliendo dati concreti sulle abitudini di spostamento del personale. Il risultato è un quadro dei punti di forza e delle criticità, senza ancora entrare nel merito delle soluzioni. È il punto di partenza più naturale per chi vuole prima capire dove si trova, e decidere solo in un secondo momento come muoversi.</p>
     </div>
 
     <div class="livello-item">
       <div>
-        <h3>Intervento mirato</h3>
-        <span class="livello-tag">Livello 3</span>
+        <h3 data-i18n="mob.livelli.l2.title">Audit con raccomandazioni sintetiche</h3>
+        <span class="livello-tag" data-i18n="mob.livelli.l2.tag">Livello 2</span>
       </div>
-      <p>A partire da una diagnosi, già fatta o da svolgere, piuttosto che da una necessità già chiara, si mira a raggiungere obiettivi concreti concordati, quali la redazione del Piano di Spostamento Casa-Lavoro, oppure un percorso di formazione mirato su una criticità specifica, per esempio il coordinamento tra turni e tragitti di lavoratori che potrebbero condividere l'auto per raggiungere la sede, ma che oggi sembrano avere impegni incompatibili. È il livello pensato per chi ha già capito dove intervenire, e cerca una risposta operativa concreta.</p>
+      <p data-i18n="mob.livelli.l2.text">Comprende la stessa raccolta dati del livello precedente, con in più una lettura sintetica delle priorità emerse, utile per orientarsi tra le criticità individuate. Non comprende invece la progettazione dell'intervento vero e proprio, la quale rimane indicata solo nelle sue linee generali.</p>
     </div>
 
     <div class="livello-item">
       <div>
-        <h3>Accompagnamento continuativo</h3>
-        <span class="livello-tag">Livello 4</span>
+        <h3 data-i18n="mob.livelli.l3.title">Intervento mirato</h3>
+        <span class="livello-tag" data-i18n="mob.livelli.l3.tag">Livello 3</span>
       </div>
-      <p>Un percorso esteso nel tempo, che affianca l'azienda nell'attuazione delle misure scelte. Prevede una nuova raccolta dati per misurare l'evoluzione rispetto alla fotografia iniziale, l'aggiornamento periodico dei dati utili alla rendicontazione di sostenibilità, e la possibilità di estendere la formazione a più team o sedi. Questo livello consente sia di quantificare l'efficacia degli interventi, sia di coglierne i trend e creare proiezioni utili a orientare le decisioni future, tanto in finestre temporali a breve-medio termine quanto in quelle a lungo termine.</p>
+      <p data-i18n="mob.livelli.l3.text">A partire da una diagnosi, già fatta o da svolgere, piuttosto che da una necessità già chiara, si mira a raggiungere obiettivi concreti concordati, quali la redazione del Piano di Spostamento Casa-Lavoro, oppure un percorso di formazione mirato su una criticità specifica, per esempio il coordinamento tra turni e tragitti di lavoratori che potrebbero condividere l'auto per raggiungere la sede, ma che oggi sembrano avere impegni incompatibili. È il livello pensato per chi ha già capito dove intervenire, e cerca una risposta operativa concreta.</p>
     </div>
 
-    <p class="livelli-chiusura">I diversi livelli possono essere combinati in un percorso su misura, definito insieme durante un primo colloquio conoscitivo.</p>
+    <div class="livello-item">
+      <div>
+        <h3 data-i18n="mob.livelli.l4.title">Accompagnamento continuativo</h3>
+        <span class="livello-tag" data-i18n="mob.livelli.l4.tag">Livello 4</span>
+      </div>
+      <p data-i18n="mob.livelli.l4.text">Un percorso esteso nel tempo, che affianca l'azienda nell'attuazione delle misure scelte. Prevede una nuova raccolta dati per misurare l'evoluzione rispetto alla fotografia iniziale, l'aggiornamento periodico dei dati utili alla rendicontazione di sostenibilità, e la possibilità di estendere la formazione a più team o sedi. Questo livello consente sia di quantificare l'efficacia degli interventi, sia di coglierne i trend e creare proiezioni utili a orientare le decisioni future, tanto in finestre temporali a breve-medio termine quanto in quelle a lungo termine.</p>
+    </div>
+
+    <p class="livelli-chiusura" data-i18n="mob.livelli.chiusura">I diversi livelli possono essere combinati in un percorso su misura, definito insieme durante un primo colloquio conoscitivo.</p>
   </div>
 </section>
 
 <div class="modal-overlay" id="chiSonoModal" hidden>
   <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="chisono-title">
-    <button class="modal-close" id="chiSonoClose" aria-label="Chiudi">&times;</button>
-    <h3 id="chisono-title">Chi sono</h3>
-    <p style="margin:0 0 16px;">Vittorio Benvenuto, Dottore magistrale in Psicologia (Corso di laurea in Psicologia Cognitiva Applicata), Psicologo iscritto all'Albo degli Psicologi del Piemonte, Sezione A, n. 12741.</p>
-    <p style="margin:0 0 16px; color:var(--muted); font-size:14.5px;">P.IVA 02858170034</p>
-    <p style="margin:0; font-size:14.5px;">Telefono: <a href="tel:+393937462110" style="color:inherit;">393 746 2110</a><br>Email: <a href="mailto:consulenza@vittoriobenvenuto.it" style="color:inherit;">consulenza@vittoriobenvenuto.it</a></p>
+    <button class="modal-close" id="chiSonoClose" data-i18n-attr="aria-label:shared.close" aria-label="Chiudi">&times;</button>
+    <h3 id="chisono-title" data-i18n="shared.chiSono.title">Chi sono</h3>
+    <p style="margin:0 0 16px;" data-i18n="shared.chiSono.bio">Vittorio Benvenuto, Dottore magistrale in Psicologia (Corso di laurea in Psicologia Cognitiva Applicata), Psicologo iscritto all'Albo degli Psicologi del Piemonte, Sezione A, n. 12741.</p>
+    <p style="margin:0 0 16px; color:var(--muted); font-size:14.5px;" data-i18n="shared.chiSono.piva">P.IVA 02858170034</p>
+    <p style="margin:0; font-size:14.5px;" data-i18n-html="shared.chiSono.contact">Telefono: <a href="tel:+393937462110" style="color:inherit;">393 746 2110</a><br>Email: <a href="mailto:consulenza@vittoriobenvenuto.it" style="color:inherit;">consulenza@vittoriobenvenuto.it</a></p>
   </div>
 </div>
 
 <div class="modal-overlay" id="consultModal" hidden>
   <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-    <button class="modal-close" id="modalClose" aria-label="Chiudi">&times;</button>
+    <button class="modal-close" id="modalClose" data-i18n-attr="aria-label:shared.close" aria-label="Chiudi">&times;</button>
 
     <div class="modal-view" data-view="choice">
-      <h3 id="modal-title">Come preferisci essere contattato?</h3>
+      <h3 id="modal-title" data-i18n="shared.modal.choiceTitle">Come preferisci essere contattato?</h3>
       <div class="modal-choices">
         <button class="modal-choice-btn" data-target="phone">
-          <strong>Prenota una telefonata</strong>
-          <span>Lascia il tuo numero e i giorni/orari in cui preferisci essere richiamato</span>
+          <strong data-i18n="shared.modal.phoneBtnTitle">Prenota una telefonata</strong>
+          <span data-i18n="shared.modal.phoneBtnDesc">Lascia il tuo numero e i giorni/orari in cui preferisci essere richiamato</span>
         </button>
         <button class="modal-choice-btn" data-target="form">
-          <strong>Contattami tramite form</strong>
-          <span>Scrivimi direttamente il tuo messaggio</span>
+          <strong data-i18n="shared.modal.formBtnTitle">Contattami tramite form</strong>
+          <span data-i18n="shared.modal.formBtnDesc">Scrivimi direttamente il tuo messaggio</span>
         </button>
         <button class="modal-choice-btn" id="modalEmailBtn">
-          <strong>Scrivimi una mail</strong>
-          <span>Apri il tuo programma di posta con l'indirizzo già pronto</span>
+          <strong data-i18n="shared.modal.emailBtnTitle">Scrivimi una mail</strong>
+          <span data-i18n="shared.modal.emailBtnDesc">Apri il tuo programma di posta con l'indirizzo già pronto</span>
         </button>
       </div>
     </div>
 
     <div class="modal-view" data-view="phone" hidden>
-      <button class="modal-back" data-back>&larr; Indietro</button>
-      <h3>Prenota una telefonata</h3>
+      <button class="modal-back" data-back data-i18n="shared.modal.back">&larr; Indietro</button>
+      <h3 data-i18n="shared.modal.phoneTitle">Prenota una telefonata</h3>
       <form id="phoneForm">
         <input type="hidden" name="_subject" value="Richiesta di richiamata dal sito">
         <input type="hidden" name="tipo" value="Prenotazione telefonata">
-        <label>Il tuo numero di telefono
+        <label><span data-i18n="shared.modal.phoneNumberLabel">Il tuo numero di telefono</span>
           <input type="tel" name="telefono" required>
         </label>
-        <label>Giorno preferito
+        <label><span data-i18n="shared.modal.dayLabel">Giorno preferito</span>
           <select name="giorno">
-            <option>Qualsiasi giorno</option>
-            <option>Lunedì</option>
-            <option>Martedì</option>
-            <option>Mercoledì</option>
-            <option>Giovedì</option>
-            <option>Venerdì</option>
-            <option>Sabato</option>
-            <option>Domenica</option>
+            <option data-i18n="shared.modal.anyDay">Qualsiasi giorno</option>
+            <option data-i18n="shared.modal.mon">Lunedì</option>
+            <option data-i18n="shared.modal.tue">Martedì</option>
+            <option data-i18n="shared.modal.wed">Mercoledì</option>
+            <option data-i18n="shared.modal.thu">Giovedì</option>
+            <option data-i18n="shared.modal.fri">Venerdì</option>
+            <option data-i18n="shared.modal.sat">Sabato</option>
+            <option data-i18n="shared.modal.sun">Domenica</option>
           </select>
         </label>
-        <label>Fascia oraria preferita
+        <label><span data-i18n="shared.modal.timeLabel">Fascia oraria preferita</span>
           <select name="fascia_oraria">
-            <option>Qualsiasi orario</option>
+            <option data-i18n="shared.modal.anyTime">Qualsiasi orario</option>
             <option>9:00 / 10:00</option>
             <option>10:00 / 11:00</option>
             <option>11:00 / 12:00</option>
@@ -1281,46 +1384,48 @@
             <option>17:00 / 18:00</option>
           </select>
         </label>
-        <button type="submit" class="btn">Invia richiesta</button>
+        <button type="submit" class="btn" data-i18n="shared.modal.sendRequest">Invia richiesta</button>
       </form>
     </div>
 
     <div class="modal-view" data-view="form" hidden>
-      <button class="modal-back" data-back>&larr; Indietro</button>
-      <h3>Scrivimi</h3>
+      <button class="modal-back" data-back data-i18n="shared.modal.back">&larr; Indietro</button>
+      <h3 data-i18n="shared.modal.writeTitle">Scrivimi</h3>
       <form id="contactForm">
         <input type="hidden" name="_subject" value="Messaggio dal sito">
         <input type="hidden" name="tipo" value="Messaggio">
-        <label>La tua email
+        <label><span data-i18n="shared.modal.emailLabel">La tua email</span>
           <input type="email" name="email" required>
         </label>
-        <label>Messaggio
+        <label><span data-i18n="shared.modal.messageLabel">Messaggio</span>
           <textarea name="messaggio" rows="5" required></textarea>
         </label>
-        <button type="submit" class="btn">Invia messaggio</button>
+        <button type="submit" class="btn" data-i18n="shared.modal.sendMessage">Invia messaggio</button>
       </form>
     </div>
 
     <div class="modal-view" data-view="success" hidden>
-      <h3>Richiesta inviata</h3>
-      <p>Grazie, ho ricevuto la tua richiesta e ti risponderò al più presto.</p>
-      <button class="btn" id="successCloseBtn">Chiudi</button>
+      <h3 data-i18n="shared.modal.successTitle">Richiesta inviata</h3>
+      <p data-i18n="shared.modal.successText">Grazie, ho ricevuto la tua richiesta e ti risponderò al più presto.</p>
+      <button class="btn" id="successCloseBtn" data-i18n="shared.modal.close">Chiudi</button>
     </div>
   </div>
 </div>
 
 <footer id="contatti">
   <div class="wrap">
-    <h2>Contatti</h2>
-    <p class="contact-line">Per una consulenza o un preventivo, scrivimi: <a href="mailto:consulenza@vittoriobenvenuto.it">consulenza@vittoriobenvenuto.it</a> oppure chiama il numero <a href="tel:+393937462110">393 746 2110</a>.</p>
+    <h2 data-i18n="shared.footer.title">Contatti</h2>
+    <p class="contact-line" data-i18n-html="shared.footer.contactLine">Per una consulenza o un preventivo, scrivimi: <a href="mailto:consulenza@vittoriobenvenuto.it">consulenza@vittoriobenvenuto.it</a> oppure chiama il numero <a href="tel:+393937462110">393 746 2110</a>.</p>
     <div class="meta">
-      <span>P.IVA 02858170034</span>
-      <span>Iscritto all'Albo degli Psicologi del Piemonte, Sezione A — n. 12741</span>
+      <span data-i18n="shared.footer.piva">P.IVA 02858170034</span>
+      <span data-i18n="shared.footer.albo">Iscritto all'Albo degli Psicologi del Piemonte, Sezione A — n. 12741</span>
       <span>PEC: vittorio.benvenuto@psypec.it</span>
     </div>
   </div>
 </footer>
 
+<script src="i18n-data.js"></script>
+<script src="i18n.js"></script>
 <script>
   document.querySelectorAll('.section-head, .mobility, .esg-callout .box, footer').forEach(function(el){
     var obs = new IntersectionObserver(function(entries){
