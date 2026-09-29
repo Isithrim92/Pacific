@@ -34,7 +34,7 @@
     background:var(--paper);
     color:var(--ink);
     font-family:'IBM Plex Sans', sans-serif;
-    font-size:17px;
+    font-size:18.5px;
     line-height:1.6;
   }
   h1,h2,h3,.serif{
@@ -69,10 +69,11 @@
     align-items:center;
     flex-wrap:wrap;
     gap:16px;
+    position:relative;
   }
   .brand{
     font-family:'Newsreader', serif;
-    font-size:20px;
+    font-size:21.5px;
     font-weight:600;
     display:inline-block;
     background:rgba(52,85,102,0.08);
@@ -83,7 +84,7 @@
     display:block;
     font-family:'IBM Plex Sans', sans-serif;
     font-weight:400;
-    font-size:13px;
+    font-size:14.5px;
     color:var(--muted);
     margin-top:2px;
   }
@@ -96,7 +97,7 @@
   nav{
     display:flex;
     gap:28px;
-    font-size:15px;
+    font-size:16.5px;
   }
   nav a{
     text-decoration:none;
@@ -106,6 +107,58 @@
   }
   nav a:hover, nav a:focus-visible{
     border-color:var(--ink);
+  }
+  /* ---------- MENU HAMBURGER (mobile) ---------- */
+  .nav-toggle-btn{
+    display:none;
+    align-items:center;
+    justify-content:center;
+    width:40px;
+    height:40px;
+    border-radius:10px;
+    border:none;
+    background:rgba(20,24,29,0.05);
+    cursor:pointer;
+    color:var(--ink);
+    flex-shrink:0;
+    transition:background .2s ease;
+  }
+  .nav-toggle-btn:hover, .nav-toggle-btn[aria-expanded="true"]{
+    background:rgba(20,24,29,0.09);
+  }
+  .nav-toggle-btn .bar{
+    transition:transform .25s ease, opacity .2s ease;
+    transform-origin:center;
+  }
+  .nav-toggle-btn[aria-expanded="true"] .bar1{ transform:translateY(7px) rotate(45deg); }
+  .nav-toggle-btn[aria-expanded="true"] .bar2{ opacity:0; }
+  .nav-toggle-btn[aria-expanded="true"] .bar3{ transform:translateY(-7px) rotate(-45deg); }
+  @media (max-width:860px){
+    .nav-toggle-btn{ display:inline-flex; }
+    nav{
+      display:none;
+      position:absolute;
+      top:calc(100% + 8px);
+      left:0;
+      right:0;
+      background:var(--white);
+      border:1px solid var(--line);
+      border-radius:10px;
+      box-shadow:0 12px 28px rgba(20,24,29,0.16);
+      padding:8px;
+      flex-direction:column;
+      gap:2px;
+      z-index:240;
+    }
+    nav.nav-open{ display:flex; }
+    nav a{
+      padding:12px 14px;
+      border-radius:6px;
+      border-bottom:none;
+    }
+    nav a:hover, nav a:focus-visible{
+      background:var(--paper-alt);
+    }
   }
   /* ---------- SELETTORE LINGUA ---------- */
   .lang-switch{ position:relative; }
@@ -119,7 +172,7 @@
     padding:10px 18px;
     cursor:pointer;
     font-family:'IBM Plex Sans', sans-serif;
-    font-size:14px;
+    font-size:15.5px;
     font-weight:500;
     color:var(--ink);
     transition:background .2s ease;
@@ -164,7 +217,7 @@
     border-radius:6px;
     cursor:pointer;
     font-family:inherit;
-    font-size:14.5px;
+    font-size:16px;
     color:var(--ink);
     text-align:left;
   }
@@ -202,7 +255,7 @@
   }
   .hero p.lede{
     margin-top:24px;
-    font-size:19px;
+    font-size:20.5px;
     color:var(--muted);
   }
   .hero .cta-row{
@@ -233,14 +286,14 @@
     color:var(--white);
     padding:14px 26px;
     text-decoration:none;
-    font-size:15px;
+    font-size:16.5px;
     font-weight:500;
     border-radius:2px;
   }
   .btn:hover{background:var(--forest);}
   .btn-ghost{
     text-decoration:none;
-    font-size:15px;
+    font-size:16.5px;
     border-bottom:1px solid var(--ink);
     padding-bottom:2px;
   }
@@ -254,7 +307,7 @@
     margin-bottom:56px;
   }
   .section-head h2{
-    font-size:32px;
+    font-size:33.5px;
   }
   .servizi .section-head h2{
     display:inline-block;
@@ -296,17 +349,17 @@
     justify-content:center;
   }
   .service h3{
-    font-size:22px;
+    font-size:23.5px;
     margin-bottom:14px;
   }
   .service p{
     color:var(--muted);
-    font-size:15.5px;
+    font-size:17px;
     margin:0;
   }
   .service .tag{
     display:inline-block;
-    font-size:12.5px;
+    font-size:14px;
     color:var(--accent, var(--ink));
     margin-bottom:10px;
   }
@@ -348,7 +401,7 @@
     padding-top:20px;
   }
   .chisono .credenziali div{
-    font-size:14px;
+    font-size:15.5px;
     color:var(--muted);
     padding:8px 0;
     border-bottom:1px solid var(--line);
@@ -356,178 +409,13 @@
   .chisono blockquote{
     margin:0;
     font-family:'Newsreader', serif;
-    font-size:23px;
+    font-size:24.5px;
     line-height:1.5;
     font-style:italic;
     max-width:48ch;
   }
   @media (max-width:760px){
     .chisono .grid{grid-template-columns:1fr;}
-  }
-  /* ---------- RICERCA APPLICATA ---------- */
-  .ricerca{
-    padding:88px 0;
-    border-bottom:1px solid var(--line);
-  }
-  .ricerca .section-head h2{
-    display:inline-block;
-    position:relative;
-    padding-bottom:16px;
-  }
-  .ricerca .section-head h2::after{
-    content:"";
-    position:absolute;
-    left:0; bottom:0;
-    height:4px;
-    width:0;
-    background:linear-gradient(90deg, var(--slate) 0 50%, var(--ochre) 50% 100%);
-    transition:width .9s ease;
-  }
-  .ricerca .section-head.in-view h2::after{ width:160px; }
-  .ricerca-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:1px;
-    background:var(--line);
-  }
-  .ricerca-block{
-    background:var(--paper);
-    padding:36px;
-    border-top:3px solid var(--accent, var(--ink));
-  }
-  .ricerca-block .tag{
-    display:inline-block;
-    font-size:12.5px;
-    color:var(--accent, var(--ink));
-    margin-bottom:10px;
-  }
-  .ricerca-block h3{
-    font-size:19px;
-    margin-bottom:12px;
-  }
-  .ricerca-block p{
-    color:var(--muted);
-    font-size:15.5px;
-    margin:0;
-  }
-  .ricerca-grid.single{
-    grid-template-columns:1fr;
-    max-width:760px;
-  }
-  @media (max-width:760px){
-    .ricerca-grid{grid-template-columns:1fr;}
-  }
-  .ricerca-cite{
-    color:var(--muted);
-    font-size:14px;
-    margin:-8px 0 32px;
-    max-width:760px;
-  }
-  .ricerca-stats{
-    display:grid;
-    grid-template-columns:repeat(4, 1fr);
-    gap:1px;
-    background:var(--line);
-    max-width:920px;
-    margin:28px 0 40px;
-  }
-  .ricerca-stat{
-    background:var(--paper);
-    padding:20px 18px;
-  }
-  .ricerca-stat .num{
-    font-family:'Newsreader', serif;
-    font-size:22px;
-    color:var(--ochre);
-    line-height:1.2;
-  }
-  .ricerca-stat .lbl{
-    font-size:12.5px;
-    color:var(--muted);
-    margin-top:4px;
-    line-height:1.35;
-  }
-  @media (max-width:760px){
-    .ricerca-stats{grid-template-columns:1fr 1fr;}
-  }
-  .ricerca-accordion{
-    max-width:820px;
-  }
-  .ricerca-acc{
-    border-top:1px solid var(--line);
-  }
-  .ricerca-acc:last-child{
-    border-bottom:1px solid var(--line);
-  }
-  .ricerca-acc summary{
-    cursor:pointer;
-    list-style:none;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:20px;
-    padding:22px 2px;
-    font-family:'IBM Plex Sans', sans-serif;
-    font-weight:600;
-    font-size:16px;
-    color:var(--ink);
-  }
-  .ricerca-acc summary::-webkit-details-marker{ display:none; }
-  .ricerca-acc summary .chev{
-    flex-shrink:0;
-    transition:transform .25s ease;
-    color:var(--ochre);
-  }
-  .ricerca-acc[open] summary .chev{
-    transform:rotate(180deg);
-  }
-  .ricerca-acc .acc-body{
-    padding:0 2px 26px;
-    color:var(--muted);
-    font-size:15px;
-    line-height:1.65;
-    max-width:700px;
-  }
-  .ricerca-acc .acc-body ul{
-    margin:10px 0 0;
-    padding-left:20px;
-  }
-  .ricerca-acc .acc-body li{
-    margin-bottom:8px;
-  }
-  .ricerca-acc .acc-body strong{
-    color:var(--ink);
-  }
-  .ricerca-links{
-    display:flex;
-    flex-wrap:wrap;
-    gap:16px;
-    margin:36px 0 8px;
-  }
-  .ricerca-link{
-    display:inline-flex;
-    align-items:center;
-    gap:10px;
-    padding:12px 18px;
-    border-radius:999px;
-    text-decoration:none;
-    font-size:14.5px;
-    font-weight:500;
-    border:1px solid var(--line);
-    color:var(--ink);
-    background:var(--white);
-    transition:border-color .2s ease, background .2s ease;
-  }
-  .ricerca-link svg{ flex-shrink:0; }
-  .ricerca-link.primary{
-    background:var(--ochre);
-    border-color:var(--ochre);
-    color:var(--white);
-  }
-  .ricerca-link.primary:hover{ background:#7d5624; }
-  .ricerca-link:not(.primary):hover{
-    border-color:var(--ink);
-    background:var(--paper-alt);
   }
   /* ---------- MOBILITY CALLOUT ---------- */
   .mobility{
@@ -542,7 +430,7 @@
     align-items:start;
   }
   .mobility h2{
-    font-size:30px;
+    font-size:31.5px;
     max-width:16ch;
     position:relative;
     padding-left:22px;
@@ -562,7 +450,7 @@
     background:var(--white);
     border:1px solid var(--line);
     padding:28px;
-    font-size:15px;
+    font-size:16.5px;
   }
   .mobility .norma .blocco + .blocco{
     margin-top:22px;
@@ -570,14 +458,14 @@
     border-top:1px solid var(--line);
   }
   .mobility .norma .label{
-    font-size:13px;
+    font-size:14.5px;
     color:var(--rust);
     margin-bottom:10px;
   }
   .mobility .norma strong{
     font-family:'Newsreader', serif;
     font-weight:600;
-    font-size:16px;
+    font-size:17.5px;
   }
   @media (max-width:760px){
     .mobility .grid{grid-template-columns:1fr;}
@@ -587,7 +475,7 @@
     padding:72px 0 48px;
   }
   footer h2{
-    font-size:28px;
+    font-size:29.5px;
     margin-bottom:20px;
     position:relative;
     display:inline-block;
@@ -604,7 +492,7 @@
   }
   footer.in-view h2::after{ width:64px; }
   footer .contact-line{
-    font-size:16px;
+    font-size:17.5px;
     margin-bottom:28px;
   }
   footer .contact-line a{
@@ -612,7 +500,7 @@
     border-bottom:1px solid var(--ink);
   }
   footer .meta{
-    font-size:13.5px;
+    font-size:15px;
     color:var(--muted);
     border-top:1px solid var(--line);
     padding-top:20px;
@@ -632,17 +520,14 @@
     justify-content:center;
     width:38px;
     height:38px;
-    border-radius:50%;
-    border:1px solid var(--line);
-    color:var(--muted);
-    transition:border-color .2s ease, color .2s ease, background .2s ease;
+    border-radius:10px;
+    transition:transform .2s ease, box-shadow .2s ease;
   }
   .social-icon:hover, .social-icon:focus-visible{
-    border-color:var(--ink);
-    color:var(--ink);
-    background:var(--paper-alt);
+    transform:translateY(-2px);
+    box-shadow:0 4px 10px rgba(20,24,29,0.18);
   }
-  .social-icon svg{ width:18px; height:18px; display:block; }
+  .social-icon svg{ width:38px; height:38px; display:block; }
   /* ---------- MODALE CONTATTO ---------- */
   .modal-overlay{
     position:fixed;
@@ -678,7 +563,7 @@
     top:16px; right:16px;
     background:none;
     border:none;
-    font-size:22px;
+    font-size:23.5px;
     line-height:1;
     cursor:pointer;
     color:var(--muted);
@@ -686,7 +571,7 @@
   }
   .modal-close:hover{ color:var(--ink); }
   .modal-panel h3{
-    font-size:22px;
+    font-size:23.5px;
     margin-bottom:22px;
     padding-right:20px;
   }
@@ -710,18 +595,18 @@
   }
   .modal-choice-btn strong{
     display:block;
-    font-size:15.5px;
+    font-size:17px;
     margin-bottom:4px;
   }
   .modal-choice-btn span{
     display:block;
-    font-size:13.5px;
+    font-size:15px;
     color:var(--muted);
   }
   .modal-back{
     background:none;
     border:none;
-    font-size:14px;
+    font-size:15.5px;
     color:var(--muted);
     cursor:pointer;
     padding:0;
@@ -738,12 +623,12 @@
     display:flex;
     flex-direction:column;
     gap:6px;
-    font-size:14px;
+    font-size:15.5px;
     color:var(--muted);
   }
   .modal-view input, .modal-view textarea, .modal-view select{
     font-family:inherit;
-    font-size:15px;
+    font-size:16.5px;
     padding:11px 12px;
     border:1px solid var(--line);
     background:var(--paper);
@@ -760,7 +645,7 @@
     cursor:pointer;
   }
   .modal-note{
-    font-size:12.5px;
+    font-size:14px;
     color:var(--muted);
     margin-top:4px;
   }
@@ -776,12 +661,20 @@
       <span data-i18n="hr.brand.tag">Psicologo del Lavoro · Consulente HR</span>
     </div>
     <div class="header-right">
-    <nav>
+    <nav id="mainNav">
       <a href="#servizi" data-i18n="hr.nav.servizi">Servizi</a>
       <a href="#chi-sono" data-i18n="shared.nav.chiSono">Chi sono</a>
+      <a href="ricerca-applicata.html" data-i18n="shared.nav.ricerca">Ricerca</a>
       <a href="#contatti" data-i18n="shared.nav.contatti">Contatti</a>
       <a href="mobility-management.html" data-i18n="shared.nav.mobility">Mobility Management</a>
     </nav>
+    <button class="nav-toggle-btn" id="navToggleBtn" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="mainNav" data-i18n-attr="aria-label:shared.menu">
+      <svg width="22" height="16" viewBox="0 0 22 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <line class="bar bar1" x1="1" y1="1" x2="21" y2="1" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <line class="bar bar2" x1="1" y1="8" x2="21" y2="8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <line class="bar bar3" x1="1" y1="15" x2="21" y2="15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </button>
     <div class="lang-switch" id="langSwitch">
       <button class="lang-switch-btn" id="langSwitchBtn" type="button" aria-haspopup="listbox" aria-expanded="false">
         <span class="lang-flags" aria-hidden="true">
@@ -862,104 +755,6 @@
       <blockquote data-i18n="hr.chisono.quote">
         "Sono Vittorio Benvenuto, Psicologo abilitato e iscritto alla Sezione A dell'Albo del Piemonte. Ho un background in analisi dei dati (R, SPSS) e in Human Factors, che applico alla selezione, alla valutazione dello stress lavoro-correlato e all'analisi dei processi organizzativi".
       </blockquote>
-    </div>
-  </div>
-</section>
-
-<section class="ricerca">
-  <div class="wrap">
-    <div class="section-head">
-      <h2 data-i18n="shared.ricerca.title">Ricerca applicata</h2>
-    </div>
-    <p class="ricerca-cite" data-i18n="hr.ricerca.cite">"Promuovere la Qualità della Vita Professionale nelle professioni d'aiuto: il ruolo dell'Intelligenza Emotiva di Tratto" — Primo Autore, in collaborazione con I.P.A.B. Luigi Mariutto, Mirano (VE) · 2025</p>
-
-    <div class="ricerca-grid single">
-      <div class="ricerca-block" style="--accent:var(--ochre)">
-        <span class="tag" data-i18n="hr.ricerca.tag">Ricerca in ambito HR</span>
-        <h3 data-i18n="hr.ricerca.h3">Intelligenza Emotiva di Tratto e Qualità della Vita Professionale</h3>
-        <p data-i18n="hr.ricerca.intro">Come primo autore, ho condotto uno studio su 97 professionisti dell'I.P.A.B. Luigi Mariutto (OSS, infermieri e altre figure a contatto con gli ospiti), per capire come l'Intelligenza Emotiva di Tratto influisca sulla Qualità della Vita Professionale: da un lato la Soddisfazione da Compassione, cioè la gratificazione che si trae dal proprio lavoro di cura, dall'altro la Fatica da Compassione, che comprende Burnout e Stress Traumatico Secondario. I risultati mostrano l'intelligenza emotiva come una risorsa concreta e allenabile, utile sia per prevenire l'esaurimento professionale sia per aumentare l'appagamento di chi lavora nelle professioni d'aiuto.</p>
-      </div>
-    </div>
-
-    <div class="ricerca-stats">
-      <div class="ricerca-stat">
-        <div class="num">97</div>
-        <div class="lbl" data-i18n="hr.ricerca.stat1">professionisti coinvolti (OSS, infermieri, altri ruoli)</div>
-      </div>
-      <div class="ricerca-stat">
-        <div class="num">3</div>
-        <div class="lbl" data-i18n="hr.ricerca.stat2">gruppi professionali messi a confronto</div>
-      </div>
-      <div class="ricerca-stat">
-        <div class="num">3</div>
-        <div class="lbl" data-i18n="hr.ricerca.stat3">ipotesi di ricerca testate</div>
-      </div>
-      <div class="ricerca-stat">
-        <div class="num">-.69</div>
-        <div class="lbl" data-i18n="hr.ricerca.stat4">correlazione tra intelligenza emotiva e burnout</div>
-      </div>
-    </div>
-
-    <div class="ricerca-accordion">
-      <details class="ricerca-acc">
-        <summary><span data-i18n="hr.ricerca.acc1.title">TEIQue-SF e ProQoL-5: gli strumenti di misura</span>
-          <svg class="chev" width="16" height="9" viewBox="0 0 16 9" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l7 7 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </summary>
-        <div class="acc-body" data-i18n-html="hr.ricerca.acc1.body">
-          <p><strong>Trait Emotional Intelligence Questionnaire – Short Form (TEIQue-SF):</strong> 30 item su scala Likert a 7 punti, che restituiscono un punteggio globale di Intelligenza Emotiva di Tratto e quattro dimensioni — Benessere, Autocontrollo, Emotività, Socievolezza — più due sfaccettature indipendenti, Adattabilità e Automotivazione, secondo il modello di Petrides e Furnham.</p>
-          <p><strong>Professional Quality of Life Scale (ProQoL-5):</strong> 20 item su scala Likert a 5 punti per la Fatica da Compassione, suddivisi in due sottoscale — Burnout e Stress Traumatico Secondario — più 10 item per la Soddisfazione da Compassione.</p>
-          <p><strong>Questionario socio-demografico:</strong> raccoglie ruolo professionale e ore lavorate a settimana, oltre ai dati anagrafici di base. Compilazione su modulo cartaceo o tramite un Google Form identico nei contenuti.</p>
-        </div>
-      </details>
-      <details class="ricerca-acc">
-        <summary><span data-i18n="hr.ricerca.acc2.title">Metodologia</span>
-          <svg class="chev" width="16" height="9" viewBox="0 0 16 9" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l7 7 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </summary>
-        <div class="acc-body" data-i18n-html="hr.ricerca.acc2.body">
-          <p>Disegno tra i soggetti (between-subjects): ogni partecipante ha risposto una sola volta al questionario, e i punteggi sono stati confrontati tra i tre gruppi professionali (OSS, infermieri, altri ruoli).</p>
-          <ul>
-            <li>101 professionisti reclutati, 4 esclusi come valori anomali (oltre 2,5 deviazioni standard dalla media); campione finale di 97 partecipanti (64 OSS, 9 infermieri, 24 altri ruoli), 75 donne, età media 48,75 anni</li>
-            <li>Raccolta dati tramite questionario cartaceo o Google Form identico, in un contesto di cura residenziale per anziani (RSA)</li>
-            <li>Numero di ore lavorate a settimana controllato tra le variabili, ma escluso dalle analisi successive perché non correlato in modo significativo agli esiti</li>
-          </ul>
-        </div>
-      </details>
-      <details class="ricerca-acc">
-        <summary><span data-i18n="hr.ricerca.acc3.title">Analisi statistiche e modelli</span>
-          <svg class="chev" width="16" height="9" viewBox="0 0 16 9" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l7 7 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </summary>
-        <div class="acc-body" data-i18n-html="hr.ricerca.acc3.body">
-          <p>Tutte le analisi sono state condotte in <strong>R</strong>. Prima delle regressioni, la collinearità tra i predittori è stata verificata con il <strong>Generalized Variance Inflation Factor (GVIF)</strong>, escludendone la presenza; la normalità dei residui è stata confermata con il <strong>test di Shapiro-Wilk</strong> per tutti e tre i modelli.</p>
-          <ul>
-            <li><strong>Regressioni lineari multiple</strong> selezionate con un approccio data-driven basato sull'<strong>Akaike Information Criterion (AIC)</strong>, una per ciascun esito: Soddisfazione da Compassione, Burnout e Stress Traumatico Secondario</li>
-            <li><strong>Contrasti di Helmert</strong> sul Ruolo professionale, per confrontare prima OSS e infermieri tra loro, poi il gruppo Altro con OSS e infermieri considerati insieme</li>
-            <li><strong>Effetto di interazione</strong> tra punteggio globale di Intelligenza Emotiva e Ruolo professionale, testato nel modello sul Burnout</li>
-            <li><strong>Analisi di correlazione</strong> preliminare tra tutte le dimensioni della TEI, gli esiti di Qualità della Vita Professionale e le ore lavorate</li>
-          </ul>
-        </div>
-      </details>
-      <details class="ricerca-acc">
-        <summary><span data-i18n="hr.ricerca.acc4.title">Risultati principali e implicazioni pratiche</span>
-          <svg class="chev" width="16" height="9" viewBox="0 0 16 9" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l7 7 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </summary>
-        <div class="acc-body" data-i18n-html="hr.ricerca.acc4.body">
-          <p>Il <strong>Benessere</strong> e, ancor più, l'<strong>Emotività</strong> predicono positivamente la Soddisfazione da Compassione: chi riconosce e gestisce meglio le proprie emozioni trae maggiore gratificazione dal lavoro di cura, in particolare tra OSS e infermieri rispetto alle altre figure professionali.</p>
-          <p>Il punteggio globale di Intelligenza Emotiva è un predittore negativo del <strong>Burnout</strong>, con un effetto protettivo più marcato per gli OSS che per gli infermieri: questi ultimi, nel campione analizzato, presentano già livelli di Burnout significativamente più contenuti.</p>
-          <p>Per lo <strong>Stress Traumatico Secondario</strong>, sono il Benessere e soprattutto l'<strong>Autocontrollo</strong> a fungere da fattori protettivi, a indicare che la capacità di regolare i propri impulsi e di gestire lo stress riduce concretamente pensieri intrusivi e ipervigilanza.</p>
-          <p>Sul piano applicativo, questi risultati indicano che investire in percorsi di formazione sull'intelligenza emotiva — anche brevi, mirati e strutturati — può ridurre il rischio di burnout e aumentare la soddisfazione professionale nelle organizzazioni che operano nelle professioni d'aiuto.</p>
-        </div>
-      </details>
-    </div>
-
-    <div class="ricerca-links">
-      <a class="ricerca-link primary" href="ricerca-qualita-vita-professionale.pdf" target="_blank" rel="noopener">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 2h9l5 5v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M14 2v5h5" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M8.5 13h7M8.5 16.5h7M8.5 9.5h3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
-        <span data-i18n="hr.ricerca.linkPdf">Leggi lo studio completo (PDF)</span>
-      </a>
-      <a class="ricerca-link" href="https://www.casaluigimariutto.it/ae01454/zf/index.php/servizi-aggiuntivi/index/index/idtesto/58" target="_blank" rel="noopener">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="7.5" stroke="currentColor" stroke-width="1.6"/><path d="M2.5 10h15M10 2.5c2.5 2 2.5 13 0 15M10 2.5c-2.5 2-2.5 13 0 15" stroke="currentColor" stroke-width="1.2"/><path d="M13 13.2l8 3-3.3 1.3L16.2 20.5 13 13.2Z" fill="currentColor"/></svg>
-        <span data-i18n="hr.ricerca.linkEnte">Visita il sito dell'ente</span>
-      </a>
     </div>
   </div>
 </section>
@@ -1053,13 +848,13 @@
     <p class="contact-line" data-i18n-html="shared.footer.contactLine">Per una consulenza o un preventivo, scrivimi: <a href="mailto:consulenza@vittoriobenvenuto.it">consulenza@vittoriobenvenuto.it</a> oppure chiama il numero <a href="tel:+393937462110">393 746 2110</a>.</p>
     <div class="social-row">
       <a class="social-icon" href="https://www.instagram.com/psicovitto?stkn=MXUwMTN3ejZndTRhcQ==" target="_blank" rel="noopener" data-i18n-attr="aria-label:shared.social.instagram" aria-label="Profilo Instagram">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="0.6" fill="currentColor" stroke="none"/></svg>
+        <svg viewBox="0 0 24 24"><defs><radialGradient id="igGrad-hr" cx="30%" cy="107%" r="150%"><stop offset="0%" stop-color="#fdf497"/><stop offset="20%" stop-color="#fdf497"/><stop offset="45%" stop-color="#fd5949"/><stop offset="65%" stop-color="#d6249f"/><stop offset="100%" stop-color="#285AEB"/></radialGradient></defs><rect x="1" y="1" width="22" height="22" rx="6" fill="url(#igGrad-hr)"/><rect x="6.5" y="6.5" width="11" height="11" rx="3.5" fill="none" stroke="#fff" stroke-width="1.6"/><circle cx="12" cy="12" r="3.1" fill="none" stroke="#fff" stroke-width="1.6"/><circle cx="16.3" cy="7.7" r="0.9" fill="#fff"/></svg>
       </a>
       <a class="social-icon" href="https://www.linkedin.com/in/vittorio-benvenuto-psy" target="_blank" rel="noopener" data-i18n-attr="aria-label:shared.social.linkedin" aria-label="Profilo LinkedIn">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><line x1="7.3" y1="10" x2="7.3" y2="17"/><circle cx="7.3" cy="6.8" r="0.9" fill="currentColor" stroke="none"/><path d="M11.3 17v-4.4c0-1.5 1-2.3 2.2-2.3 1.3 0 2.2.9 2.2 2.4V17"/><line x1="11.3" y1="10.2" x2="11.3" y2="17"/></svg>
+        <svg viewBox="0 0 24 24"><rect x="1" y="1" width="22" height="22" rx="6" fill="#0A66C2"/><rect x="5.7" y="9.8" width="2.8" height="8.2" fill="#fff"/><circle cx="7.1" cy="6.3" r="1.7" fill="#fff"/><path d="M11.4 18v-8.2h2.7v1.2c.6-.9 1.5-1.5 2.8-1.5 2 0 3.3 1.4 3.3 3.8V18h-2.8v-4.2c0-1.2-.5-2-1.6-2-.9 0-1.5.6-1.7 1.2-.1.2-.1.5-.1.8V18z" fill="#fff"/></svg>
       </a>
       <a class="social-icon" href="https://youtube.com/@theicebergzone-tiz?si=XS6NT-dVs9ZTzbug" target="_blank" rel="noopener" data-i18n-attr="aria-label:shared.social.youtube" aria-label="Canale YouTube">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5.5" width="18" height="13" rx="4"/><path d="M10.4 9.2v5.6l4.9-2.8z" fill="currentColor" stroke="none"/></svg>
+        <svg viewBox="0 0 24 24"><rect x="1" y="4.5" width="22" height="15" rx="5" fill="#FF0000"/><path d="M10 8.6v6.8l6-3.4z" fill="#fff"/></svg>
       </a>
     </div>
     <div class="meta">

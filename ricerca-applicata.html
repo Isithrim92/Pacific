@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<script>document.documentElement.classList.add('i18n-pending');</script>
+<style>html.i18n-pending body{visibility:hidden;}</style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ricerca Applicata | Vittorio Benvenuto</title>
+<meta name="description" content="Ricerca applicata di Vittorio Benvenuto: Intelligenza Emotiva e Qualità della Vita Professionale nelle professioni d'aiuto, e comportamento visivo ed Empatia alla guida in un simulatore di guida.">
+<meta name="keywords" content="ricerca applicata, psicologia del lavoro, psicologia del traffico, intelligenza emotiva, qualità della vita professionale, eye tracking, simulatore di guida">
+<link rel="canonical" href="https://www.vittoriobenvenuto.it/ricerca-applicata.html">
+<meta property="og:title" content="Ricerca Applicata | Vittorio Benvenuto">
+<meta property="og:description" content="Due ricerche condotte in prima persona: Risorse Umane e Traffico e Trasporti.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.vittoriobenvenuto.it/ricerca-applicata.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#14181d;
+    --paper:#efece3;
+    --paper-alt:#e2e0d5;
+    --line:#c9c4b3;
+    --forest:#2e5339;
+    --ochre:#9c6b30;
+    --slate:#345566;
+    --rust:#8c4a2f;
+    --muted:#5b5a52;
+    --white:#faf9f5;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    *{animation:none !important; transition:none !important;}
+  }
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', sans-serif;
+    font-size:18.5px;
+    line-height:1.6;
+  }
+  h1,h2,h3,.serif{
+    font-family:'Newsreader', serif;
+    font-weight:500;
+    letter-spacing:-0.01em;
+    margin:0;
+  }
+  a{color:inherit;}
+  .scroll-bar{
+    position:fixed;
+    top:0; left:0;
+    height:3px;
+    width:0%;
+    background:linear-gradient(90deg, var(--ochre) 0 25%, var(--forest) 25% 50%, var(--slate) 50% 75%, var(--rust) 75% 100%);
+    z-index:200;
+    transition:width .1s linear;
+  }
+  .wrap{
+    max-width:1080px;
+    margin:0 auto;
+    padding:0 32px;
+  }
+  /* ---------- HEADER ---------- */
+  header{
+    padding:28px 0;
+    border-bottom:1px solid var(--line);
+  }
+  header .wrap{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:16px;
+    position:relative;
+  }
+  .brand{
+    font-family:'Newsreader', serif;
+    font-size:21.5px;
+    font-weight:600;
+    display:inline-block;
+    background:rgba(52,85,102,0.08);
+    border-radius:14px;
+    padding:12px 20px;
+  }
+  .brand span{
+    display:block;
+    font-family:'IBM Plex Sans', sans-serif;
+    font-weight:400;
+    font-size:14.5px;
+    color:var(--muted);
+    margin-top:2px;
+  }
+  .header-right{
+    display:flex;
+    align-items:center;
+    gap:28px;
+    flex-wrap:wrap;
+  }
+  nav{
+    display:flex;
+    gap:28px;
+    font-size:16.5px;
+  }
+  nav a{
+    text-decoration:none;
+    border-bottom:1px solid transparent;
+    padding-bottom:2px;
+    transition:border-color .15s ease;
+  }
+  nav a:hover, nav a:focus-visible{
+    border-color:var(--ink);
+  }
+  /* ---------- MENU HAMBURGER (mobile) ---------- */
+  .nav-toggle-btn{
+    display:none;
+    align-items:center;
+    justify-content:center;
+    width:40px;
+    height:40px;
+    border-radius:10px;
+    border:none;
+    background:rgba(20,24,29,0.05);
+    cursor:pointer;
+    color:var(--ink);
+    flex-shrink:0;
+    transition:background .2s ease;
+  }
+  .nav-toggle-btn:hover, .nav-toggle-btn[aria-expanded="true"]{
+    background:rgba(20,24,29,0.09);
+  }
+  .nav-toggle-btn .bar{
+    transition:transform .25s ease, opacity .2s ease;
+    transform-origin:center;
+  }
+  .nav-toggle-btn[aria-expanded="true"] .bar1{ transform:translateY(7px) rotate(45deg); }
+  .nav-toggle-btn[aria-expanded="true"] .bar2{ opacity:0; }
+  .nav-toggle-btn[aria-expanded="true"] .bar3{ transform:translateY(-7px) rotate(-45deg); }
+  @media (max-width:860px){
+    .nav-toggle-btn{ display:inline-flex; }
+    nav{
+      display:none;
+      position:absolute;
+      top:calc(100% + 8px);
+      left:0;
+      right:0;
+      background:var(--white);
+      border:1px solid var(--line);
+      border-radius:10px;
+      box-shadow:0 12px 28px rgba(20,24,29,0.16);
+      padding:8px;
+      flex-direction:column;
+      gap:2px;
+      z-index:240;
+    }
+    nav.nav-open{ display:flex; }
+    nav a{
+      padding:12px 14px;
+      border-radius:6px;
+      border-bottom:none;
+    }
+    nav a:hover, nav a:focus-visible{
+      background:var(--paper-alt);
+    }
+  }
+  /* ---------- SELETTORE LINGUA ---------- */
+  .lang-switch{ position:relative; }
+  .lang-switch-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    background:rgba(20,24,29,0.05);
+    border:none;
+    border-radius:999px;
+    padding:10px 18px;
+    cursor:pointer;
+    font-family:'IBM Plex Sans', sans-serif;
+    font-size:15.5px;
+    font-weight:500;
+    color:var(--ink);
+    transition:background .2s ease;
+  }
+  .lang-switch-btn:hover, .lang-switch-btn[aria-expanded="true"]{
+    background:rgba(20,24,29,0.09);
+  }
+  .lang-flags{ display:flex; align-items:center; }
+  .lang-flags .flag{
+    width:18px; height:13px;
+    border-radius:2px;
+    overflow:hidden;
+    display:flex;
+    box-shadow:0 0 0 1.5px var(--white);
+    margin-left:-6px;
+  }
+  .lang-flags .flag:first-child{ margin-left:0; }
+  .lang-flags .flag svg{ width:100%; height:100%; display:block; }
+  .lang-chevron{ color:var(--muted); flex-shrink:0; transition:transform .2s ease; }
+  .lang-switch-btn[aria-expanded="true"] .lang-chevron{ transform:rotate(180deg); }
+  .lang-menu{
+    position:absolute;
+    top:calc(100% + 8px);
+    right:0;
+    background:var(--white);
+    border:1px solid var(--line);
+    border-radius:10px;
+    box-shadow:0 12px 28px rgba(20,24,29,0.16);
+    padding:6px;
+    min-width:180px;
+    z-index:250;
+  }
+  .lang-menu[hidden]{ display:none; }
+  .lang-option{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    width:100%;
+    padding:10px 10px;
+    border:none;
+    background:none;
+    border-radius:6px;
+    cursor:pointer;
+    font-family:inherit;
+    font-size:16px;
+    color:var(--ink);
+    text-align:left;
+  }
+  .lang-option:hover, .lang-option:focus-visible{ background:var(--paper-alt); }
+  .lang-option .flag{
+    width:20px; height:14px;
+    border-radius:2px;
+    overflow:hidden;
+    flex-shrink:0;
+    box-shadow:0 0 0 1px var(--line);
+  }
+  .lang-option .flag svg{ width:100%; height:100%; display:block; }
+  .lang-option.active{ font-weight:600; }
+  /* ---------- RICERCA HUB ---------- */
+  .ricerca-hub{
+    padding:88px 0 96px;
+  }
+  .section-head{
+    max-width:60ch;
+    margin-bottom:24px;
+  }
+  .section-head h2{
+    display:inline-block;
+    position:relative;
+    padding-bottom:16px;
+    font-size:33.5px;
+  }
+  .section-head h2::after{
+    content:"";
+    position:absolute;
+    left:0; bottom:0;
+    height:4px;
+    width:0;
+    background:linear-gradient(90deg, var(--slate) 0 50%, var(--ochre) 50% 100%);
+    transition:width .9s ease;
+  }
+  .section-head.in-view h2::after{ width:160px; }
+  .ricerca-hub-intro{
+    color:var(--muted);
+    font-size:18px;
+    max-width:64ch;
+    margin:0 0 48px;
+  }
+  .ricerca-choice{
+    border:1px solid var(--line);
+    background:var(--white);
+    margin-bottom:20px;
+  }
+  .ricerca-choice summary{
+    cursor:pointer;
+    list-style:none;
+    display:flex;
+    align-items:center;
+    gap:24px;
+    padding:32px 36px;
+  }
+  .ricerca-choice summary::-webkit-details-marker{ display:none; }
+  .ricerca-choice-icon{
+    flex-shrink:0;
+    width:64px; height:64px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .ricerca-choice-icon svg{
+    width:56px; height:56px;
+    stroke:var(--accent, var(--ink));
+    fill:none;
+    stroke-width:1.4;
+  }
+  .ricerca-choice-text{ flex:1; }
+  .ricerca-choice-text h3{
+    font-size:25px;
+    margin-bottom:6px;
+  }
+  .ricerca-choice-text p{
+    color:var(--muted);
+    font-size:16.5px;
+    margin:0;
+  }
+  .ricerca-choice .chev-big{
+    flex-shrink:0;
+    color:var(--muted);
+    transition:transform .3s ease;
+  }
+  .ricerca-choice[open] .chev-big{ transform:rotate(180deg); }
+  .ricerca-choice-body{
+    padding:32px 36px 44px;
+    border-top:1px solid var(--line);
+  }
+  @media (max-width:640px){
+    .ricerca-choice summary{ flex-wrap:wrap; padding:24px; gap:16px; }
+    .ricerca-choice-body{ padding:28px 24px 32px; }
+  }
+  .ricerca-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:1px;
+    background:var(--line);
+  }
+  .ricerca-block{
+    background:var(--paper);
+    padding:36px;
+    border-top:3px solid var(--accent, var(--ink));
+  }
+  .ricerca-block .tag{
+    display:inline-block;
+    font-size:14px;
+    color:var(--accent, var(--ink));
+    margin-bottom:10px;
+  }
+  .ricerca-block h3{
+    font-size:20.5px;
+    margin-bottom:12px;
+  }
+  .ricerca-block p{
+    color:var(--muted);
+    font-size:17px;
+    margin:0;
+  }
+  .ricerca-grid.single{
+    grid-template-columns:1fr;
+    max-width:760px;
+  }
+  @media (max-width:760px){
+    .ricerca-grid{grid-template-columns:1fr;}
+  }
+  .ricerca-cite{
+    color:var(--muted);
+    font-size:15.5px;
+    margin:-8px 0 32px;
+    max-width:760px;
+  }
+  .ricerca-stats{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:1px;
+    background:var(--line);
+    max-width:920px;
+    margin:28px 0 40px;
+  }
+  .ricerca-stat{
+    background:var(--paper);
+    padding:20px 18px;
+  }
+  .ricerca-stat .num{
+    font-family:'Newsreader', serif;
+    font-size:23.5px;
+    color:var(--ochre);
+    line-height:1.2;
+  }
+  .ricerca-stat .lbl{
+    font-size:14px;
+    color:var(--muted);
+    margin-top:4px;
+    line-height:1.35;
+  }
+  @media (max-width:760px){
+    .ricerca-stats{grid-template-columns:1fr 1fr;}
+  }
+  .ricerca-accordion{
+    max-width:820px;
+  }
+  .ricerca-acc{
+    border-top:1px solid var(--line);
+  }
+  .ricerca-acc:last-child{
+    border-bottom:1px solid var(--line);
+  }
+  .ricerca-acc summary{
+    cursor:pointer;
+    list-style:none;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+    padding:22px 2px;
+    font-family:'IBM Plex Sans', sans-serif;
+    font-weight:600;
+    font-size:17.5px;
+    color:var(--ink);
+  }
+  .ricerca-acc summary::-webkit-details-marker{ display:none; }
+  .ricerca-acc summary .chev{
+    flex-shrink:0;
+    transition:transform .25s ease;
+    color:var(--ochre);
+  }
+  .ricerca-acc[open] summary .chev{
+    transform:rotate(180deg);
+  }
+  .ricerca-acc .acc-body{
+    padding:0 2px 26px;
+    color:var(--muted);
+    font-size:16.5px;
+    line-height:1.65;
+    max-width:700px;
+  }
+  .ricerca-acc .acc-body ul{
+    margin:10px 0 0;
+    padding-left:20px;
+  }
+  .ricerca-acc .acc-body li{
+    margin-bottom:8px;
+  }
+  .ricerca-acc .acc-body strong{
+    color:var(--ink);
+  }
+  .ricerca-links{
+    display:flex;
+    flex-wrap:wrap;
+    gap:16px;
+    margin:36px 0 8px;
+  }
+  .ricerca-link{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:12px 18px;
+    border-radius:999px;
+    text-decoration:none;
+    font-size:16px;
+    font-weight:500;
+    border:1px solid var(--line);
+    color:var(--ink);
+    background:var(--white);
+    transition:border-color .2s ease, background .2s ease;
+  }
+  .ricerca-link svg{ flex-shrink:0; }
+  .ricerca-link.primary{
+    background:var(--ochre);
+    border-color:var(--ochre);
+    color:var(--white);
+  }
+  .ricerca-link.primary:hover{ background:#7d5624; }
+  .ricerca-link:not(.primary):hover{
+    border-color:var(--ink);
+    background:var(--paper-alt);
+  }
+  /* ---------- CONTATTI ---------- */
+  footer{
+    padding:72px 0 48px;
+    border-top:1px solid var(--line);
+  }
+  footer h2{
+    font-size:29.5px;
+    margin-bottom:20px;
+    position:relative;
+    display:inline-block;
+    padding-bottom:12px;
+  }
+  footer h2::after{
+    content:"";
+    position:absolute;
+    left:0; bottom:0;
+    width:0;
+    height:2px;
+    background:var(--ink);
+    transition:width .7s ease;
+  }
+  footer.in-view h2::after{ width:64px; }
+  footer .contact-line{
+    font-size:17.5px;
+    margin-bottom:28px;
+  }
+  footer .contact-line a{
+    text-decoration:none;
+    border-bottom:1px solid var(--ink);
+  }
+  footer .meta{
+    font-size:15px;
+    color:var(--muted);
+    border-top:1px solid var(--line);
+    padding-top:20px;
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:8px;
+  }
+  .social-row{
+    display:flex;
+    gap:12px;
+    margin-bottom:28px;
+  }
+  .social-icon{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:38px;
+    height:38px;
+    border-radius:10px;
+    transition:transform .2s ease, box-shadow .2s ease;
+  }
+  .social-icon:hover, .social-icon:focus-visible{
+    transform:translateY(-2px);
+    box-shadow:0 4px 10px rgba(20,24,29,0.18);
+  }
+  .social-icon svg{ width:38px; height:38px; display:block; }
+</style>
+</head>
+<body>
+
+<div class="scroll-bar" id="scrollBar"></div>
+
+<header>
+  <div class="wrap">
+    <div class="brand"><a href="index.html" style="text-decoration:none;color:inherit;">Vittorio Benvenuto</a>
+      <span data-i18n="ric.brand.tag">Ricerca Applicata</span>
+    </div>
+    <div class="header-right">
+    <nav id="mainNav">
+      <a href="risorse-umane.html#chi-sono" data-i18n="shared.nav.chiSono">Chi sono</a>
+      <a href="mobility-management.html" data-i18n="shared.nav.mobility">Mobility Management</a>
+      <a href="risorse-umane.html" data-i18n="shared.nav.risorseUmane">Risorse Umane</a>
+      <a href="#contatti" data-i18n="shared.nav.contatti">Contatti</a>
+    </nav>
+    <button class="nav-toggle-btn" id="navToggleBtn" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="mainNav" data-i18n-attr="aria-label:shared.menu">
+      <svg width="22" height="16" viewBox="0 0 22 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <line class="bar bar1" x1="1" y1="1" x2="21" y2="1" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <line class="bar bar2" x1="1" y1="8" x2="21" y2="8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <line class="bar bar3" x1="1" y1="15" x2="21" y2="15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </button>
+    <div class="lang-switch" id="langSwitch">
+      <button class="lang-switch-btn" id="langSwitchBtn" type="button" aria-haspopup="listbox" aria-expanded="false">
+        <span class="lang-flags" aria-hidden="true">
+          <span class="flag"><svg viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg"><rect width="10" height="20" fill="#009246"/><rect x="10" width="10" height="20" fill="#fff"/><rect x="20" width="10" height="20" fill="#ce2b37"/></svg></span>
+          <span class="flag"><svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="40" fill="#012169"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#fff" stroke-width="8"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#C8102E" stroke-width="4"/><path d="M30,0 V40 M0,20 H60" stroke="#fff" stroke-width="14"/><path d="M30,0 V40 M0,20 H60" stroke="#C8102E" stroke-width="8"/></svg></span>
+          <span class="flag"><svg viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg"><rect width="30" height="10" fill="#0057b7"/><rect y="10" width="30" height="10" fill="#ffd700"/></svg></span>
+        </span>
+        <span class="lang-current" id="langCurrentLabel">Italiano</span>
+        <svg class="lang-chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="lang-menu" id="langMenu" role="listbox" hidden>
+        <button class="lang-option" type="button" data-lang="it" role="option">
+          <span class="flag"><svg viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg"><rect width="10" height="20" fill="#009246"/><rect x="10" width="10" height="20" fill="#fff"/><rect x="20" width="10" height="20" fill="#ce2b37"/></svg></span> Italiano
+        </button>
+        <button class="lang-option" type="button" data-lang="en" role="option">
+          <span class="flag"><svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="40" fill="#012169"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#fff" stroke-width="8"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#C8102E" stroke-width="4"/><path d="M30,0 V40 M0,20 H60" stroke="#fff" stroke-width="14"/><path d="M30,0 V40 M0,20 H60" stroke="#C8102E" stroke-width="8"/></svg></span> English
+        </button>
+        <button class="lang-option" type="button" data-lang="uk" role="option">
+          <span class="flag"><svg viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg"><rect width="30" height="10" fill="#0057b7"/><rect y="10" width="30" height="10" fill="#ffd700"/></svg></span> Українська
+        </button>
+      </div>
+    </div>
+    </div>
+  </div>
+</header>
+
+<section class="ricerca-hub">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 data-i18n="shared.ricerca.title">Ricerca applicata</h2>
+    </div>
+    <p class="ricerca-hub-intro" data-i18n="ric.intro">Due ricerche condotte in prima persona, applicate a due ambiti diversi del mio percorso: le organizzazioni e la sicurezza stradale. Seleziona un ambito per leggerne il dettaglio.</p>
+
+    <details class="ricerca-choice">
+      <summary>
+        <div class="ricerca-choice-icon" style="--accent:var(--ochre)">
+          <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="17" cy="15" r="6"></circle>
+            <circle cx="33" cy="15" r="6"></circle>
+            <path d="M6 40c0-7 5-12 11-12s11 5 11 12"></path>
+            <path d="M22 40c0-7 5-12 11-12s11 5 11 12"></path>
+          </svg>
+        </div>
+        <div class="ricerca-choice-text">
+          <h3 data-i18n="ric.hr.cardTitle">Risorse Umane</h3>
+          <p data-i18n="ric.hr.cardDesc">Intelligenza Emotiva di Tratto e Qualità della Vita Professionale nelle professioni d'aiuto</p>
+        </div>
+        <svg class="chev-big" width="18" height="10" viewBox="0 0 18 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l8 8 8-8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </summary>
+      <div class="ricerca-choice-body">
+        <p class="ricerca-cite" data-i18n="ric.hr.cite">"Promuovere la Qualità della Vita Professionale nelle professioni d'aiuto: il ruolo dell'Intelligenza Emotiva di Tratto" — Primo Autore, in collaborazione con I.P.A.B. Luigi Mariutto, Mirano (VE) · 2025</p>
+
+        <div class="ricerca-grid single">
+          <div class="ricerca-block" style="--accent:var(--ochre)">
+            <span class="tag" data-i18n="ric.hr.tag">Ricerca in ambito HR</span>
+            <h3 data-i18n="ric.hr.h3">Intelligenza Emotiva di Tratto e Qualità della Vita Professionale</h3>
+            <p data-i18n="ric.hr.intro">Come primo autore, ho condotto uno studio su 97 professionisti dell'I.P.A.B. Luigi Mariutto (OSS, infermieri e altre figure a contatto con gli ospiti), per capire come l'Intelligenza Emotiva di Tratto influisca sulla Qualità della Vita Professionale: da un lato la Soddisfazione da Compassione, cioè la gratificazione che si trae dal proprio lavoro di cura, dall'altro la Fatica da Compassione, che comprende Burnout e Stress Traumatico Secondario. I risultati mostrano l'intelligenza emotiva come una risorsa concreta e allenabile, utile sia per prevenire l'esaurimento professionale sia per aumentare l'appagamento di chi lavora nelle professioni d'aiuto.</p>
+          </div>
+        </div>
+
+        <div class="ricerca-stats">
+          <div class="ricerca-stat">
+            <div class="num">97</div>
+            <div class="lbl" data-i18n="ric.hr.stat1">professionisti coinvolti (OSS, infermieri, altri ruoli)</div>
+          </div>
+          <div class="ricerca-stat">
+            <div class="num">3</div>
+            <div class="lbl" data-i18n="ric.hr.stat2">gruppi professionali messi a confronto</div>
+          </div>
+          <div class="ricerca-stat">
+            <div class="num">3</div>
+            <div class="lbl" data-i18n="ric.hr.stat3">ipotesi di ricerca testate</div>
+          </div>
+          <div class="ricerca-stat">
+            <div class="num">-.69</div>
+            <div class="lbl" data-i18n="ric.hr.stat4">correlazione tra intelligenza emotiva e burnout</div>
+          </div>
+        </div>
+
+        <div class="ricerca-accordion">
+          <details class="ricerca-acc">
+            <summary><span data-i18n="ric.hr.acc1.title">TEIQue-SF e ProQoL-5: gli strumenti di misura</span>
+              <svg class="chev" width="16" height="9" viewBox="0 0 16 9" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l7 7 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </summary>
+            <div class="acc-body" data-i18n-html="ric.hr.acc1.body">
+              <p><strong>Trait Emotional Intelligence Questionnaire – Short Form (TEIQue-SF):</strong> 30 item su scala Likert a 7 punti, che restituiscono un punteggio globale di Intelligenza Emotiva di Tratto e quattro dimensioni — Benessere, Autocontrollo, Emotività, Socievolezza — più due sfaccettature indipendenti, Adattabilità e Automotivazione, secondo il modello di Petrides e Furnham.</p>
+              <p><strong>Professional Quality of Life Scale (ProQoL-5):</strong> 20 item su scala Likert a 5 punti per la Fatica da Compassione, suddivisi in due sottoscale — Burnout e Stress Traumatico Secondario — più 10 item per la Soddisfazione da Compassione.</p>
+              <p><strong>Questionario socio-demografico:</strong> raccoglie ruolo professionale e ore lavorate a settimana, oltre ai dati anagrafici di base. Compilazione su modulo cartaceo o tramite un Google Form identico nei contenuti.</p>
+            </div>
+          </details>
+          <details class="ricerca-acc">
+            <summary><span data-i18n="ric.hr.acc2.title">Metodologia</span>
+              <svg class="chev" width="16" height="9" viewBox="0 0 16 9" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l7 7 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </summary>
+            <div class="acc-body" data-i18n-html="ric.hr.acc2.body">
+              <p>Disegno tra i soggetti (between-subjects): ogni partecipante ha risposto una sola volta al questionario, e i punteggi sono stati confrontati tra i tre gruppi professionali (OSS, infermieri, altri ruoli).</p>
+              <ul>
+                <li>101 professionisti reclutati, 4 esclusi come valori anomali (oltre 2,5 deviazioni standard dalla media); campione finale di 97 partecipanti (64 OSS, 9 infermieri, 24 altri ruoli), 75 donne, età media 48,75 anni</li>
+                <li>Raccolta dati tramite questionario cartaceo o Google Form identico, in un contesto di cura residenziale per anziani (RSA)</li>
+                <li>Numero di ore lavorate a settimana controllato tra le variabili, ma escluso dalle analisi successive perché non correlato in modo significativo agli esiti</li>
+              </ul>
+            </div>
+          </details>
+          <details class="ricerca-acc">
+            <summary><span data-i18n="ric.hr.acc3.title">Analisi statistiche e modelli</span>
+              <svg class="chev" width="16" height="9" viewBox="0 0 16 9" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l7 7 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </summary>
+            <div class="acc-body" data-i18n-html="ric.hr.acc3.body">
+              <p>Tutte le analisi sono state condotte in <strong>R</strong>. Prima delle regressioni, la collinearità tra i predittori è stata verificata con il <strong>Generalized Variance Inflation Factor (GVIF)</strong>, escludendone la presenza; la normalità dei residui è stata confermata con il <strong>test di Shapiro-Wilk</strong> per tutti e tre i modelli.</p>
+              <ul>
+                <li><strong>Regressioni lineari multiple</strong> selezionate con un approccio data-driven basato sull'<strong>Akaike Information Criterion (AIC)</strong>, una per ciascun esito: Soddisfazione da Compassione, Burnout e Stress Traumatico Secondario</li>
+                <li><strong>Contrasti di Helmert</strong> sul Ruolo professionale, per confrontare prima OSS e infermieri tra loro, poi il gruppo Altro con OSS e infermieri considerati insieme</li>
+                <li><strong>Effetto di interazione</strong> tra punteggio globale di Intelligenza Emotiva e Ruolo professionale, testato nel modello sul Burnout</li>
+                <li><strong>Analisi di correlazione</strong> preliminare tra tutte le dimensioni della TEI, gli esiti di Qualità della Vita Professionale e le ore lavorate</li>
+              </ul>
+            </div>
+          </details>
+          <details class="ricerca-acc">
+            <summary><span data-i18n="ric.hr.acc4.title">Risultati principali e implicazioni pratiche</span>
+              <svg class="chev" width="16" height="9" viewBox="0 0 16 9" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l7 7 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </summary>
+            <div class="acc-body" data-i18n-html="ric.hr.acc4.body">
+              <p>Il <strong>Benessere</strong> e, ancor più, l'<strong>Emotività</strong> predicono positivamente la Soddisfazione da Compassione: chi riconosce e gestisce meglio le proprie emozioni trae maggiore gratificazione dal lavoro di cura, in particolare tra OSS e infermieri rispetto alle altre figure professionali.</p>
+              <p>Il punteggio globale di Intelligenza Emotiva è un predittore negativo del <strong>Burnout</strong>, con un effetto protettivo più marcato per gli OSS che per gli infermieri: questi ultimi, nel campione analizzato, presentano già livelli di Burnout significativamente più contenuti.</p>
+              <p>Per lo <strong>Stress Traumatico Secondario</strong>, sono il Benessere e soprattutto l'<strong>Autocontrollo</strong> a fungere da fattori protettivi, a indicare che la capacità di regolare i propri impulsi e di gestire lo stress riduce concretamente pensieri intrusivi e ipervigilanza.</p>
+              <p>Sul piano applicativo, questi risultati indicano che investire in percorsi di formazione sull'intelligenza emotiva — anche brevi, mirati e strutturati — può ridurre il rischio di burnout e aumentare la soddisfazione professionale nelle organizzazioni che operano nelle professioni d'aiuto.</p>
+            </div>
+          </details>
+        </div>
+
+        <div class="ricerca-links">
+          <a class="ricerca-link primary" href="ricerca-qualita-vita-professionale.pdf" target="_blank" rel="noopener">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 2h9l5 5v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M14 2v5h5" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M8.5 13h7M8.5 16.5h7M8.5 9.5h3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+            <span data-i18n="ric.hr.linkPdf">Leggi lo studio completo (PDF)</span>
+          </a>
+          <a class="ricerca-link" href="https://www.casaluigimariutto.it/ae01454/zf/index.php/servizi-aggiuntivi/index/index/idtesto/58" target="_blank" rel="noopener">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="7.5" stroke="currentColor" stroke-width="1.6"/><path d="M2.5 10h15M10 2.5c2.5 2 2.5 13 0 15M10 2.5c-2.5 2-2.5 13 0 15" stroke="currentColor" stroke-width="1.2"/><path d="M13 13.2l8 3-3.3 1.3L16.2 20.5 13 13.2Z" fill="currentColor"/></svg>
+            <span data-i18n="ric.hr.linkEnte">Visita il sito dell'ente</span>
+          </a>
+        </div>
+      </div>
+    </details>
+
+    <details class="ricerca-choice">
+      <summary>
+        <div class="ricerca-choice-icon" style="--accent:var(--slate)">
+          <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6 32l4-12a4 4 0 0 1 4-3h20a4 4 0 0 1 4 3l4 12"></path>
+            <path d="M4 32h40v6a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2v-2H12v2a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"></path>
+            <circle cx="14" cy="32" r="2.4"></circle>
+            <circle cx="34" cy="32" r="2.4"></circle>
+            <path d="M14 22h20"></path>
+          </svg>
+        </div>
+        <div class="ricerca-choice-text">
+          <h3 data-i18n="ric.traffico.cardTitle">Traffico e Trasporti</h3>
+          <p data-i18n="ric.traffico.cardDesc">Comportamento visivo, carico cognitivo ed Empatia alla guida in un simulatore VR</p>
+        </div>
+        <svg class="chev-big" width="18" height="10" viewBox="0 0 18 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l8 8 8-8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </summary>
+      <div class="ricerca-choice-body">
+        <p class="ricerca-cite" data-i18n="ric.traffico.cite">Tesi di Laurea Magistrale in Psicologia Cognitiva Applicata — Università degli Studi di Padova (relatrice: prof.ssa Mariaelena Tagliabue) · 2024–2025</p>
+
+        <div class="ricerca-grid single">
+          <div class="ricerca-block" style="--accent:var(--slate)">
+            <span class="tag" data-i18n="ric.traffico.tag">Guida simulata (VR)</span>
+            <h3 data-i18n="ric.traffico.h3">Intelligenza Emotiva, Empatia e comportamento oculare alla guida</h3>
+            <p data-i18n="ric.traffico.intro">La mia tesi magistrale ha analizzato il comportamento visivo di 52 motociclisti in un simulatore di guida, confrontando un percorso a bassa densità di traffico con uno ad alta densità in cui erano inserite scene di rischio (un pedone che attraversa all'improvviso, un ostacolo in rotatoria, un veicolo che ostruisce la carreggiata). L'obiettivo era capire se e come i punteggi di Intelligenza Emotiva ed Empatia dei partecipanti si associno a strategie visive diverse — dove guardano, quanto a lungo, con quale ampiezza di esplorazione — nei momenti di maggiore carico cognitivo. I dati raccolti sono utilizzabili sia per calibrare sistemi di assistenza alla guida (ADAS) sensibili al carico cognitivo, sia per progettare programmi di formazione alla guida difensiva.</p>
+          </div>
+        </div>
+
+        <div class="ricerca-stats">
+          <div class="ricerca-stat">
+            <div class="num">52</div>
+            <div class="lbl" data-i18n="ric.traffico.stat1">partecipanti, 19–46 anni</div>
+          </div>
+          <div class="ricerca-stat">
+            <div class="num">2</div>
+            <div class="lbl" data-i18n="ric.traffico.stat2">percorsi sperimentali a confronto</div>
+          </div>
+          <div class="ricerca-stat">
+            <div class="num">4</div>
+            <div class="lbl" data-i18n="ric.traffico.stat3">ipotesi sperimentali testate</div>
+          </div>
+          <div class="ricerca-stat">
+            <div class="num">5</div>
+            <div class="lbl" data-i18n="ric.traffico.stat4">scene di rischio inserite nel percorso</div>
+          </div>
+        </div>
+
+        <div class="ricerca-accordion">
+          <details class="ricerca-acc">
+            <summary><span data-i18n="ric.traffico.acc1.title">Simulatore di guida e tecnologia di tracciamento oculare</span>
+              <svg class="chev" width="16" height="9" viewBox="0 0 16 9" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l7 7 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </summary>
+            <div class="acc-body" data-i18n-html="ric.traffico.acc1.body">
+              <p><strong>Simulatore di guida Lander:</strong> un motociclo montato su una pedana con meccanismi di beccheggio e rollio, davanti a tre schermi che offrono un campo visivo a 150°. Consente di personalizzare traffico, meteo, luminosità e di inserire scene di rischio in punti precisi del percorso.</p>
+              <p><strong>Occhiali eye-tracking SMI ETG 2 wireless:</strong> indossabili, con tracciamento binoculare fino a 120 Hz e un'accuratezza di 0,5°, usati per misurare dilatazione pupillare, ammiccamenti e movimenti saccadici durante la guida.</p>
+              <p><strong>Batteria di questionari psicometrici</strong> (compilati online prima della prova): Trait Meta-Mood Scale (TMMS), Basic Empathy Scale (BES) e Trait Emotional Intelligence Questionnaire – Short Form (TEIQue-SF), oltre a un questionario socio-demografico.</p>
+            </div>
+          </details>
+          <details class="ricerca-acc">
+            <summary><span data-i18n="ric.traffico.acc2.title">Metodologia</span>
+              <svg class="chev" width="16" height="9" viewBox="0 0 16 9" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l7 7 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </summary>
+            <div class="acc-body" data-i18n-html="ric.traffico.acc2.body">
+              <p>Disegno sperimentale entro i soggetti, con due percorsi somministrati in ordine bilanciato tra i partecipanti: uno a bassa densità di traffico e senza scene di rischio, l'altro ad alta densità con cinque scene di rischio inserite lungo il tragitto (es. un tombino aperto, un pedone che attraversa d'improvviso, un veicolo che ostruisce una rotatoria).</p>
+              <ul>
+                <li>Campione di 52 partecipanti (28 donne), tutti patentati B da almeno un anno e con almeno 1.000 km percorsi nell'ultimo anno</li>
+                <li>Raccolta dati in due fasi: questionari online, poi sessione di guida simulata in laboratorio</li>
+                <li>Calibrazione dell'eye-tracker prima di ogni percorso sperimentale</li>
+                <li>Studio approvato dal Comitato Etico per la ricerca psicologica dell'Università di Padova</li>
+              </ul>
+            </div>
+          </details>
+          <details class="ricerca-acc">
+            <summary><span data-i18n="ric.traffico.acc3.title">Analisi statistiche e modelli</span>
+              <svg class="chev" width="16" height="9" viewBox="0 0 16 9" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l7 7 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </summary>
+            <div class="acc-body" data-i18n-html="ric.traffico.acc3.body">
+              <p>Analisi di potenza a priori con <strong>G*Power</strong>, per stimare la numerosità campionaria necessaria a rilevare effetti di entità media; tutte le analisi statistiche sono state condotte con <strong>IBM SPSS (v29)</strong>.</p>
+              <ul>
+                <li><strong>ANOVA/MANOVA a misure ripetute</strong>, per confrontare i parametri oculari tra i due percorsi</li>
+                <li><strong>Regressioni lineari multiple</strong>, per verificare l'effetto dei punteggi di Intelligenza Emotiva ed Empatia sul comportamento visivo e di guida</li>
+                <li><strong>Analisi di correlazione</strong> tra parametri oculari, punteggi ai questionari e variabili estratte dal simulatore</li>
+                <li><strong>Video-analisi automatizzata con YOLO v11</strong> (modello di deep learning per il riconoscimento di oggetti, sottoposto a fine-tuning) per tracciare auto, moto, biciclette e pedoni nel campo visivo e incrociarli con il punto di fissazione dello sguardo</li>
+              </ul>
+            </div>
+          </details>
+          <details class="ricerca-acc">
+            <summary><span data-i18n="ric.traffico.acc4.title">Risultati principali e applicazioni pratiche</span>
+              <svg class="chev" width="16" height="9" viewBox="0 0 16 9" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l7 7 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </summary>
+            <div class="acc-body" data-i18n-html="ric.traffico.acc4.body">
+              <p>La presenza di scene di rischio aumenta il carico cognitivo dei conducenti, rilevabile in tempo reale tramite dilatazione pupillare e durata delle saccadi. Una maggiore <strong>empatia cognitiva</strong> si associa a un'esplorazione visiva più ampia dell'ambiente stradale, utile per accorgersi anche di pedoni e ciclisti; buoni livelli di <strong>autocontrollo emotivo</strong> e di chiarezza nel riconoscere i propri stati emotivi si associano invece a un'attenzione più mirata sugli stimoli rischiosi e a una guida più stabile.</p>
+              <p>Sul piano applicativo, questi risultati indicano che il rilevamento dei parametri oculari può contribuire a sistemi di sicurezza alla guida (ADAS) sensibili al carico cognitivo del conducente, e che i programmi di formazione alla guida difensiva possono trarre beneficio dall'includere moduli di sviluppo dell'empatia e di regolazione emotiva.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </details>
+  </div>
+</section>
+
+<footer id="contatti">
+  <div class="wrap">
+    <h2 data-i18n="shared.footer.title">Contatti</h2>
+    <p class="contact-line" data-i18n-html="shared.footer.contactLine">Per una consulenza o un preventivo, scrivimi: <a href="mailto:consulenza@vittoriobenvenuto.it">consulenza@vittoriobenvenuto.it</a> oppure chiama il numero <a href="tel:+393937462110">393 746 2110</a>.</p>
+    <div class="social-row">
+      <a class="social-icon" href="https://www.instagram.com/psicovitto?stkn=MXUwMTN3ejZndTRhcQ==" target="_blank" rel="noopener" data-i18n-attr="aria-label:shared.social.instagram" aria-label="Profilo Instagram">
+        <svg viewBox="0 0 24 24"><defs><radialGradient id="igGrad-ric" cx="30%" cy="107%" r="150%"><stop offset="0%" stop-color="#fdf497"/><stop offset="20%" stop-color="#fdf497"/><stop offset="45%" stop-color="#fd5949"/><stop offset="65%" stop-color="#d6249f"/><stop offset="100%" stop-color="#285AEB"/></radialGradient></defs><rect x="1" y="1" width="22" height="22" rx="6" fill="url(#igGrad-ric)"/><rect x="6.5" y="6.5" width="11" height="11" rx="3.5" fill="none" stroke="#fff" stroke-width="1.6"/><circle cx="12" cy="12" r="3.1" fill="none" stroke="#fff" stroke-width="1.6"/><circle cx="16.3" cy="7.7" r="0.9" fill="#fff"/></svg>
+      </a>
+      <a class="social-icon" href="https://www.linkedin.com/in/vittorio-benvenuto-psy" target="_blank" rel="noopener" data-i18n-attr="aria-label:shared.social.linkedin" aria-label="Profilo LinkedIn">
+        <svg viewBox="0 0 24 24"><rect x="1" y="1" width="22" height="22" rx="6" fill="#0A66C2"/><rect x="5.7" y="9.8" width="2.8" height="8.2" fill="#fff"/><circle cx="7.1" cy="6.3" r="1.7" fill="#fff"/><path d="M11.4 18v-8.2h2.7v1.2c.6-.9 1.5-1.5 2.8-1.5 2 0 3.3 1.4 3.3 3.8V18h-2.8v-4.2c0-1.2-.5-2-1.6-2-.9 0-1.5.6-1.7 1.2-.1.2-.1.5-.1.8V18z" fill="#fff"/></svg>
+      </a>
+      <a class="social-icon" href="https://youtube.com/@theicebergzone-tiz?si=XS6NT-dVs9ZTzbug" target="_blank" rel="noopener" data-i18n-attr="aria-label:shared.social.youtube" aria-label="Canale YouTube">
+        <svg viewBox="0 0 24 24"><rect x="1" y="4.5" width="22" height="15" rx="5" fill="#FF0000"/><path d="M10 8.6v6.8l6-3.4z" fill="#fff"/></svg>
+      </a>
+    </div>
+    <div class="meta">
+      <span data-i18n="shared.footer.piva">P.IVA 02858170034</span>
+      <span data-i18n="shared.footer.albo">Iscritto all'Albo degli Psicologi del Piemonte, Sezione A — n. 12741</span>
+      <span>PEC: vittorio.benvenuto@psypec.it</span>
+    </div>
+  </div>
+</footer>
+
+<script src="i18n-data.js"></script>
+<script src="i18n.js"></script>
+<script>
+  document.querySelectorAll('.section-head, footer').forEach(function(el){
+    var obs = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('in-view');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, {threshold:0.35});
+    obs.observe(el);
+  });
+
+  // Barra di scorrimento
+  var scrollBar = document.getElementById('scrollBar');
+  function updateScrollBar(){
+    var h = document.documentElement;
+    var scrolled = (h.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
+    scrollBar.style.width = scrolled + '%';
+  }
+  window.addEventListener('scroll', updateScrollBar);
+  updateScrollBar();
+</script>
+
+</body>
+</html>

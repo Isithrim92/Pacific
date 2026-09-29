@@ -54,6 +54,38 @@
     document.documentElement.classList.remove('i18n-pending');
   }
 
+  function initNavToggle(){
+    var btn = document.getElementById('navToggleBtn');
+    var nav = document.getElementById('mainNav');
+    if(!btn || !nav) return;
+
+    function closeNav(){
+      nav.classList.remove('nav-open');
+      btn.setAttribute('aria-expanded', 'false');
+    }
+    function openNav(){
+      nav.classList.add('nav-open');
+      btn.setAttribute('aria-expanded', 'true');
+    }
+
+    btn.addEventListener('click', function(e){
+      e.stopPropagation();
+      if(nav.classList.contains('nav-open')) closeNav(); else openNav();
+    });
+    document.addEventListener('click', function(e){
+      if(!nav.contains(e.target) && e.target !== btn) closeNav();
+    });
+    nav.addEventListener('click', function(e){
+      if(e.target.tagName === 'A') closeNav();
+    });
+    document.addEventListener('keydown', function(e){
+      if(e.key === 'Escape') closeNav();
+    });
+    window.addEventListener('resize', function(){
+      if(window.innerWidth > 860) closeNav();
+    });
+  }
+
   function initLangSwitch(){
     var btn = document.getElementById('langSwitchBtn');
     var menu = document.getElementById('langMenu');
@@ -94,6 +126,7 @@
     try{
       applyTranslations(window.__vbLang);
       initLangSwitch();
+      initNavToggle();
     }catch(e){
       if(window.console) console.error('i18n error', e);
     }
