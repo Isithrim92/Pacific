@@ -863,7 +863,6 @@
     list-style:none;
     display:flex;
     align-items:center;
-    justify-content:space-between;
     gap:20px;
   }
   .competenze-toggle summary::-webkit-details-marker{ display:none; }
@@ -872,17 +871,30 @@
     flex-direction:column;
     gap:8px;
   }
+  .competenze-toggle-title{
+    display:flex;
+    align-items:center;
+    gap:14px;
+  }
   .competenze-audience{
     font-size:13px;
     color:var(--muted);
     font-weight:400;
   }
-  .competenze-toggle .chev-big{
+  .competenze-toggle .chev-stack{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:1px;
     flex-shrink:0;
     color:var(--muted);
     transition:transform .3s ease;
   }
-  .competenze-toggle[open] .chev-big{ transform:rotate(180deg); }
+  .competenze-toggle .chev-stack svg{ display:block; }
+  .competenze-toggle .chev-stack svg:nth-child(1){ opacity:.45; }
+  .competenze-toggle .chev-stack svg:nth-child(2){ opacity:.7; }
+  .competenze-toggle .chev-stack svg:nth-child(3){ opacity:1; }
+  .competenze-toggle[open] .chev-stack{ transform:rotate(180deg); }
   .competenze-body{
     margin-top:40px;
   }
@@ -1164,10 +1176,16 @@
     <details class="competenze-toggle">
       <summary>
         <div class="competenze-toggle-text">
-          <h2 data-i18n="mob.competenze.title">Altre competenze in sicurezza stradale</h2>
+          <div class="competenze-toggle-title">
+            <h2 data-i18n="mob.competenze.title">Altre competenze in sicurezza stradale</h2>
+            <span class="chev-stack" aria-hidden="true">
+              <svg width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <svg width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <svg width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </div>
           <span class="competenze-audience" data-i18n="mob.competenze.audienceAll">Scuole · Autoscuole · Aziende · Privati · Enti Pubblici</span>
         </div>
-        <svg class="chev-big" width="18" height="10" viewBox="0 0 18 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l8 8 8-8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </summary>
       <div class="competenze-body">
         <div class="competenza-item">
