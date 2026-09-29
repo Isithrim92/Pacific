@@ -627,6 +627,28 @@
     flex-wrap:wrap;
     gap:8px;
   }
+  .social-row{
+    display:flex;
+    gap:12px;
+    margin-bottom:28px;
+  }
+  .social-icon{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:38px;
+    height:38px;
+    border-radius:50%;
+    border:1px solid var(--line);
+    color:var(--muted);
+    transition:border-color .2s ease, color .2s ease, background .2s ease;
+  }
+  .social-icon:hover, .social-icon:focus-visible{
+    border-color:var(--ink);
+    color:var(--ink);
+    background:var(--paper-alt);
+  }
+  .social-icon svg{ width:18px; height:18px; display:block; }
   /* ---------- MODALE CONTATTO ---------- */
   .modal-overlay{
     position:fixed;
@@ -1416,6 +1438,17 @@
   <div class="wrap">
     <h2 data-i18n="shared.footer.title">Contatti</h2>
     <p class="contact-line" data-i18n-html="shared.footer.contactLine">Per una consulenza o un preventivo, scrivimi: <a href="mailto:consulenza@vittoriobenvenuto.it">consulenza@vittoriobenvenuto.it</a> oppure chiama il numero <a href="tel:+393937462110">393 746 2110</a>.</p>
+    <div class="social-row">
+      <a class="social-icon" href="https://www.instagram.com/psicovitto?stkn=MXUwMTN3ejZndTRhcQ==" target="_blank" rel="noopener" data-i18n-attr="aria-label:shared.social.instagram" aria-label="Profilo Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="0.6" fill="currentColor" stroke="none"/></svg>
+      </a>
+      <a class="social-icon" href="https://www.linkedin.com/in/vittorio-benvenuto-psy" target="_blank" rel="noopener" data-i18n-attr="aria-label:shared.social.linkedin" aria-label="Profilo LinkedIn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><line x1="7.3" y1="10" x2="7.3" y2="17"/><circle cx="7.3" cy="6.8" r="0.9" fill="currentColor" stroke="none"/><path d="M11.3 17v-4.4c0-1.5 1-2.3 2.2-2.3 1.3 0 2.2.9 2.2 2.4V17"/><line x1="11.3" y1="10.2" x2="11.3" y2="17"/></svg>
+      </a>
+      <a class="social-icon" href="https://youtube.com/@theicebergzone-tiz?si=XS6NT-dVs9ZTzbug" target="_blank" rel="noopener" data-i18n-attr="aria-label:shared.social.youtube" aria-label="Canale YouTube">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5.5" width="18" height="13" rx="4"/><path d="M10.4 9.2v5.6l4.9-2.8z" fill="currentColor" stroke="none"/></svg>
+      </a>
+    </div>
     <div class="meta">
       <span data-i18n="shared.footer.piva">P.IVA 02858170034</span>
       <span data-i18n="shared.footer.albo">Iscritto all'Albo degli Psicologi del Piemonte, Sezione A — n. 12741</span>
