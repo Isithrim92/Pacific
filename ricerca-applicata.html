@@ -80,10 +80,19 @@
     font-family:'Newsreader', serif;
     font-size:21.5px;
     font-weight:600;
-    display:inline-block;
+    display:flex;
+    align-items:center;
+    gap:14px;
     background:rgba(52,85,102,0.08);
     border-radius:14px;
     padding:12px 20px;
+  }
+  .brand-badge{
+    width:44px;
+    height:44px;
+    border-radius:50%;
+    flex-shrink:0;
+    display:block;
   }
   .brand span{
     display:block;
@@ -469,10 +478,23 @@
   }
   footer h2{
     font-size:29.5px;
-    margin-bottom:20px;
+    margin-bottom:0;
     position:relative;
     display:inline-block;
     padding-bottom:12px;
+  }
+  .footer-heading{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    margin-bottom:20px;
+  }
+  .footer-badge{
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    flex-shrink:0;
+    display:block;
   }
   footer h2::after{
     content:"";
@@ -529,8 +551,12 @@
 
 <header>
   <div class="wrap">
-    <div class="brand"><a href="index.html" style="text-decoration:none;color:inherit;">Vittorio Benvenuto</a>
-      <span data-i18n="ric.brand.tag">Ricerca Applicata</span>
+    <div class="brand">
+      <img class="brand-badge" src="monogramma-vb-ricerca-applicata.png" alt="" width="44" height="44">
+      <div>
+        <a href="index.html" style="text-decoration:none;color:inherit;">Vittorio Benvenuto</a>
+        <span data-i18n="ric.brand.tag">Ricerca Applicata</span>
+      </div>
     </div>
     <div class="header-right">
     <nav id="mainNav">
@@ -803,7 +829,10 @@
 
 <footer id="contatti">
   <div class="wrap">
-    <h2 data-i18n="shared.footer.title">Contatti</h2>
+    <div class="footer-heading">
+      <img class="footer-badge" src="monogramma-vb-ricerca-applicata.png" alt="" width="40" height="40">
+      <h2 data-i18n="shared.footer.title">Contatti</h2>
+    </div>
     <p class="contact-line" data-i18n-html="shared.footer.contactLine">Per una consulenza o un preventivo, scrivimi: <a href="mailto:consulenza@vittoriobenvenuto.it">consulenza@vittoriobenvenuto.it</a> oppure chiama il numero <a href="tel:+393937462110">393 746 2110</a>.</p>
     <div class="social-row">
       <a class="social-icon" href="https://www.instagram.com/psicovitto?stkn=MXUwMTN3ejZndTRhcQ==" target="_blank" rel="noopener" data-i18n-attr="aria-label:shared.social.instagram" aria-label="Profilo Instagram">

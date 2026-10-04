@@ -94,10 +94,19 @@
     font-family:'Newsreader', serif;
     font-size:21.5px;
     font-weight:600;
-    display:inline-block;
+    display:flex;
+    align-items:center;
+    gap:14px;
     background:rgba(52,85,102,0.08);
     border-radius:14px;
     padding:12px 20px;
+  }
+  .brand-badge{
+    width:44px;
+    height:44px;
+    border-radius:50%;
+    flex-shrink:0;
+    display:block;
   }
   .brand span{
     display:block;
@@ -513,10 +522,23 @@
   }
   footer h2{
     font-size:29.5px;
-    margin-bottom:20px;
+    margin-bottom:0;
     position:relative;
     display:inline-block;
     padding-bottom:12px;
+  }
+  .footer-heading{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    margin-bottom:20px;
+  }
+  .footer-badge{
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    flex-shrink:0;
+    display:block;
   }
   footer h2::after{
     content:"";
@@ -989,6 +1011,33 @@
     font-size:13px;
     color:var(--muted);
   }
+  .livello-highlight{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    gap:8px;
+    background:var(--rust);
+    border-radius:10px;
+    padding:14px 18px;
+    margin:0 0 16px;
+  }
+  .livello-highlight .hl-label{
+    font-family:'IBM Plex Sans', sans-serif;
+    font-weight:600;
+    font-size:12.5px;
+    text-transform:uppercase;
+    letter-spacing:.05em;
+    color:rgba(255,255,255,0.75);
+    margin-right:2px;
+  }
+  .livello-highlight .hl-pill{
+    background:rgba(255,255,255,0.18);
+    color:var(--white);
+    border-radius:999px;
+    padding:6px 13px;
+    font-size:14px;
+    font-weight:500;
+  }
   .livello-item p{
     color:var(--muted);
     font-size:17px;
@@ -1012,8 +1061,12 @@
 
 <header>
   <div class="wrap">
-    <div class="brand"><a href="index.html" style="text-decoration:none;color:inherit;">Vittorio Benvenuto</a>
-      <span data-i18n="mob.brand.tag">Psicologo del Lavoro · Mobility Manager</span>
+    <div class="brand">
+      <img class="brand-badge" src="monogramma-vb-mobility-management.png" alt="" width="44" height="44">
+      <div>
+        <a href="index.html" style="text-decoration:none;color:inherit;">Vittorio Benvenuto</a>
+        <span data-i18n="mob.brand.tag">Psicologo del Lavoro · Mobility Manager</span>
+      </div>
     </div>
     <div class="header-right">
     <nav id="mainNav">
@@ -1147,7 +1200,15 @@
         <h3 data-i18n="mob.livelli.l1.title">Audit e diagnosi</h3>
         <span class="livello-tag" data-i18n="mob.livelli.l1.tag">Livello 1</span><span class="livello-scope" data-i18n="mob.livelli.l1.scope">Puntuale e rapido</span>
       </div>
+      <div>
+      <div class="livello-highlight">
+        <span class="hl-label" data-i18n="mob.livelli.hlLabel">Cosa include</span>
+        <span class="hl-pill" data-i18n="mob.livelli.l1.hl1">Mappatura delle abitudini di spostamento</span>
+        <span class="hl-pill" data-i18n="mob.livelli.l1.hl2">Punti di forza e criticità</span>
+        <span class="hl-pill" data-i18n="mob.livelli.l1.hl3">Nessuna proposta di soluzione</span>
+      </div>
       <p data-i18n="mob.livelli.l1.text">Una fotografia chiara della situazione attuale, costruita raccogliendo dati concreti sulle abitudini di spostamento del personale. Il risultato è un quadro dei punti di forza e delle criticità, senza ancora entrare nel merito delle soluzioni. È il punto di partenza più naturale per chi vuole prima capire dove si trova, e decidere solo in un secondo momento come muoversi.</p>
+      </div>
     </div>
 
     <div class="livello-item">
@@ -1155,7 +1216,15 @@
         <h3 data-i18n="mob.livelli.l2.title">Audit con raccomandazioni sintetiche</h3>
         <span class="livello-tag" data-i18n="mob.livelli.l2.tag">Livello 2</span><span class="livello-scope" data-i18n="mob.livelli.l2.scope">Puntuale, più approfondito</span>
       </div>
+      <div>
+      <div class="livello-highlight">
+        <span class="hl-label" data-i18n="mob.livelli.hlLabel">Cosa include</span>
+        <span class="hl-pill" data-i18n="mob.livelli.l2.hl1">Stessa raccolta dati del Livello 1</span>
+        <span class="hl-pill" data-i18n="mob.livelli.l2.hl2">Lettura sintetica delle priorità</span>
+        <span class="hl-pill" data-i18n="mob.livelli.l2.hl3">Linee generali, non il progetto esecutivo</span>
+      </div>
       <p data-i18n="mob.livelli.l2.text">Comprende la stessa raccolta dati del livello precedente, con in più una lettura sintetica delle priorità emerse, utile per orientarsi tra le criticità individuate. Non comprende invece la progettazione dell'intervento vero e proprio, la quale rimane indicata solo nelle sue linee generali.</p>
+      </div>
     </div>
 
     <div class="livello-item">
@@ -1163,7 +1232,15 @@
         <h3 data-i18n="mob.livelli.l3.title">Intervento mirato</h3>
         <span class="livello-tag" data-i18n="mob.livelli.l3.tag">Livello 3</span><span class="livello-scope" data-i18n="mob.livelli.l3.scope">Progetto a termine</span>
       </div>
+      <div>
+      <div class="livello-highlight">
+        <span class="hl-label" data-i18n="mob.livelli.hlLabel">Cosa include</span>
+        <span class="hl-pill" data-i18n="mob.livelli.l3.hl1">Piano di Spostamento Casa-Lavoro</span>
+        <span class="hl-pill" data-i18n="mob.livelli.l3.hl2">Formazione mirata su una criticità</span>
+        <span class="hl-pill" data-i18n="mob.livelli.l3.hl3">Risposta operativa concreta</span>
+      </div>
       <p data-i18n="mob.livelli.l3.text">A partire da una diagnosi, già fatta o da svolgere, piuttosto che da una necessità già chiara, si mira a raggiungere obiettivi concreti concordati, quali la redazione del Piano di Spostamento Casa-Lavoro, oppure un percorso di formazione mirato su una criticità specifica, per esempio il coordinamento tra turni e tragitti di lavoratori che potrebbero condividere l'auto per raggiungere la sede, ma che oggi sembrano avere impegni incompatibili. È il livello pensato per chi ha già capito dove intervenire, e cerca una risposta operativa concreta.</p>
+      </div>
     </div>
 
     <div class="livello-item">
@@ -1171,7 +1248,15 @@
         <h3 data-i18n="mob.livelli.l4.title">Accompagnamento continuativo</h3>
         <span class="livello-tag" data-i18n="mob.livelli.l4.tag">Livello 4</span><span class="livello-scope" data-i18n="mob.livelli.l4.scope">Percorso continuativo</span>
       </div>
+      <div>
+      <div class="livello-highlight">
+        <span class="hl-label" data-i18n="mob.livelli.hlLabel">Cosa include</span>
+        <span class="hl-pill" data-i18n="mob.livelli.l4.hl1">Nuova raccolta dati nel tempo</span>
+        <span class="hl-pill" data-i18n="mob.livelli.l4.hl2">Aggiornamento per la rendicontazione ESG</span>
+        <span class="hl-pill" data-i18n="mob.livelli.l4.hl3">Estendibile a più team o sedi</span>
+      </div>
       <p data-i18n="mob.livelli.l4.text">Un percorso esteso nel tempo, che affianca l'azienda nell'attuazione delle misure scelte. Prevede una nuova raccolta dati per misurare l'evoluzione rispetto alla fotografia iniziale, l'aggiornamento periodico dei dati utili alla rendicontazione di sostenibilità, e la possibilità di estendere la formazione a più team o sedi. Questo livello consente sia di quantificare l'efficacia degli interventi, sia di coglierne i trend e creare proiezioni utili a orientare le decisioni future, tanto in finestre temporali a breve-medio termine quanto in quelle a lungo termine.</p>
+      </div>
     </div>
 
     <p class="livelli-chiusura" data-i18n="mob.livelli.chiusura">I diversi livelli possono essere combinati in un percorso su misura, definito insieme durante un primo colloquio conoscitivo.</p>
@@ -1334,7 +1419,10 @@
 
 <footer id="contatti">
   <div class="wrap">
-    <h2 data-i18n="shared.footer.title">Contatti</h2>
+    <div class="footer-heading">
+      <img class="footer-badge" src="monogramma-vb-mobility-management.png" alt="" width="40" height="40">
+      <h2 data-i18n="shared.footer.title">Contatti</h2>
+    </div>
     <p class="contact-line" data-i18n-html="shared.footer.contactLine">Per una consulenza o un preventivo, scrivimi: <a href="mailto:consulenza@vittoriobenvenuto.it">consulenza@vittoriobenvenuto.it</a> oppure chiama il numero <a href="tel:+393937462110">393 746 2110</a>.</p>
     <div class="social-row">
       <a class="social-icon" href="https://www.instagram.com/psicovitto?stkn=MXUwMTN3ejZndTRhcQ==" target="_blank" rel="noopener" data-i18n-attr="aria-label:shared.social.instagram" aria-label="Profilo Instagram">
